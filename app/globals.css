@@ -55,34 +55,18 @@ h1, h2, h3, h4 {
   color: #F5921E;
 }
 
+/* Mobile tap feedback, animated from TouchRipple.tsx. Drawn at full size
+   (84px) and scaled down to start, so the edge stays sharp. */
 .touch-ripple {
-  width: 16px;
-  height: 16px;
-  margin-left: -8px;
-  margin-top: -8px;
-  background: radial-gradient(circle, rgba(245, 146, 30, 0.28) 0%, rgba(245, 146, 30, 0.12) 60%, rgba(245, 146, 30, 0) 100%);
-  animation: touchRipple 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(245, 146, 30, 0.75);
+  background: radial-gradient(circle, rgba(245, 146, 30, 0.22) 0%, rgba(245, 146, 30, 0.1) 55%, rgba(245, 146, 30, 0) 72%);
+  transform: scale(0.18);
   will-change: transform, opacity;
-}
-
-@keyframes touchRipple {
-  0% {
-    transform: scale(0.5);
-    opacity: 0.9;
-  }
-  60% {
-    opacity: 0.45;
-  }
-  100% {
-    transform: scale(5);
-    opacity: 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .touch-ripple {
-    animation-duration: 1ms;
-  }
+  backface-visibility: hidden;
 }
 
 .glass {
