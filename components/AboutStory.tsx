@@ -8,7 +8,7 @@ export default function AboutStory() {
     <section className="relative overflow-hidden bg-paper">
       <GradientMesh variant="light" />
       <div className="relative mx-auto max-w-[1400px] px-6 pb-8 pt-20 md:px-10 md:pb-12 md:pt-28">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-6 xl:col-span-5">
             <div className="lg:sticky lg:top-28">
               <Reveal>

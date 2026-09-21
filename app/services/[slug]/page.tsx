@@ -69,7 +69,7 @@ export default function ServiceDetailPage({ params }: Params) {
             </nav>
           </Reveal>
 
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14">
             <div>
               <Reveal>
                 <p className="inline-flex items-center gap-2.5 rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold text-accent md:text-sm">
@@ -160,7 +160,7 @@ export default function ServiceDetailPage({ params }: Params) {
           <section className="relative overflow-hidden bg-gradient-to-b from-paper via-paper2/50 to-paper2/60 py-16 md:py-20">
             <GradientMesh variant="light" />
             <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-              <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-14">
                 <Reveal>
                   <span className="eyebrow">Our approach</span>
                   <h2 className="mt-4 font-sora text-2xl font-800 leading-[1.15] tracking-tight text-inkText md:text-4xl">

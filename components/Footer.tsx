@@ -136,7 +136,7 @@ export default function Footer() {
       </span>
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid gap-7 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.8fr)_minmax(0,0.55fr)_minmax(0,0.95fr)_minmax(0,0.95fr)] lg:gap-10">
+        <div className="grid grid-cols-1 gap-7 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.8fr)_minmax(0,0.55fr)_minmax(0,0.95fr)_minmax(0,0.95fr)] lg:gap-10">
           {/* Brand */}
           <div>
             <Link href="/" data-cursor-hover>

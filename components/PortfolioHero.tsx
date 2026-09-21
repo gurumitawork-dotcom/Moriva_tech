@@ -36,7 +36,7 @@ export default function PortfolioHero() {
           </nav>
         </Reveal>
 
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
           <div>
             <Reveal>
               <p className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold tracking-wide text-accent md:text-sm">

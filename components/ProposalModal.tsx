@@ -176,7 +176,7 @@ export default function ProposalModal({
           </svg>
         </button>
 
-        <div className="grid md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
           {/* Left — brand panel, on the same light ground as the pages */}
           <div className="relative overflow-hidden border-b border-lineDark bg-gradient-to-b from-paper via-paper2/50 to-paper2/70 p-7 md:border-b-0 md:border-r md:p-10 lg:p-12">
             <GradientMesh variant="light" />
@@ -345,7 +345,7 @@ export default function ProposalModal({
               />
             </div>
 
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="proposal-phone" className={label}>
                   Phone{" "}
@@ -401,7 +401,7 @@ export default function ProposalModal({
               Send message
             </button>
 
-            <dl className="mt-6 grid gap-4 border-t border-lineDark pt-5 sm:grid-cols-2">
+            <dl className="mt-6 grid grid-cols-1 gap-4 border-t border-lineDark pt-5 sm:grid-cols-2">
               <div>
                 <dt className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-inkTextDim">
                   Typical reply

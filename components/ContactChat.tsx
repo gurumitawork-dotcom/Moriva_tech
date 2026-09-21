@@ -280,7 +280,7 @@ export default function ContactChat() {
               <pre className="mt-2 whitespace-pre-wrap break-words font-inter text-sm leading-relaxed text-inkText">
                 {body}
               </pre>
-              <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+              <div className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
                 <a
                   href={whatsappHref}
                   target="_blank"

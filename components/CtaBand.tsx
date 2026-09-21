@@ -21,7 +21,7 @@ export default function CtaBand() {
             <CtaVisual />
             <CtaVisualBanner />
 
-            <div className="relative grid items-center gap-9 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] lg:gap-12 xl:pr-[38%]">
+            <div className="relative grid grid-cols-1 items-center gap-9 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] lg:gap-12 xl:pr-[38%]">
               {/* Message */}
               <div className="max-w-[560px]">
                 <span className="eyebrow">Have a project in mind?</span>

@@ -12,6 +12,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Phone browsers ignore overflow-x on body alone and let the whole page pan
+     sideways if anything pokes past the edge; clipping here stops that. */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -19,6 +23,7 @@ body {
   color: #0E2A5C;
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @media (pointer: fine) {
