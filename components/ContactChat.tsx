@@ -66,8 +66,11 @@ type Message = { id: number; from: "bot" | "user"; text: string };
 
 const EMPTY: Answers = { name: "", email: "", topics: [], message: "", phone: "" };
 
+/** The chat opens with the greeting already there, so it is ready instantly. */
+const GREETING: Message[] = STEPS[0].bot(EMPTY).map((text, i) => ({ id: -1 - i, from: "bot", text }));
+
 export default function ContactChat() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>(GREETING);
   const [step, setStep] = useState(0);
   const [typing, setTyping] = useState(false);
   const [done, setDone] = useState(false);
@@ -88,34 +91,62 @@ export default function ContactChat() {
     setMessages((m) => [...m, { id: idRef.current++, from, text }]);
   }, []);
 
-  /** Bot lines arrive one by one behind a typing indicator, like a real chat. */
+  // Lines still waiting behind the typing indicator, so a fast visitor can
+  // skip the wait: sending an answer delivers them at once.
+  const pending = useRef<{ lines: string[]; after?: () => void } | null>(null);
+
+  const finish = useCallback((after?: () => void) => {
+    pending.current = null;
+    setTyping(false);
+    after?.();
+    if (engaged.current) inputRef.current?.focus({ preventScroll: true });
+  }, []);
+
+  /** Deliver anything still queued immediately, cancelling the delays. */
+  const flush = useCallback(() => {
+    const q = pending.current;
+    if (!q) return;
+    timers.current.forEach(window.clearTimeout);
+    timers.current = [];
+    q.lines.forEach((l) => say("bot", l));
+    finish(q.after);
+  }, [say, finish]);
+
+  /**
+   * Bot lines arrive behind a short typing indicator, like a real chat, but
+   * quickly: ~0.3-0.4s per line. `instant` skips the delay entirely (used
+   * for the greeting, so the chat is ready the moment the page opens).
+   */
   const botSays = useCallback(
-    (lines: string[], after?: () => void) => {
+    (lines: string[], after?: () => void, instant = false) => {
       const calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      let t = 0;
+      if (instant || calm) {
+        lines.forEach((l) => say("bot", l));
+        finish(after);
+        return;
+      }
+      const queue = [...lines];
+      pending.current = { lines: queue, after };
       setTyping(true);
+      let t = 0;
       lines.forEach((line, i) => {
-        t += calm ? 0 : 450 + Math.min(line.length * 12, 700);
+        t += i === 0 ? 280 + Math.min(line.length * 2, 150) : 200 + Math.min(line.length * 2, 150);
         timers.current.push(
           window.setTimeout(() => {
+            queue.shift();
             say("bot", line);
-            if (i === lines.length - 1) {
-              setTyping(false);
-              after?.();
-              if (engaged.current) inputRef.current?.focus({ preventScroll: true });
-            }
+            if (i === lines.length - 1) finish(after);
           }, t)
         );
       });
     },
-    [say]
+    [say, finish]
   );
 
   useEffect(() => {
-    const pending = timers.current;
-    botSays(STEPS[0].bot(EMPTY));
-    return () => pending.forEach(window.clearTimeout);
-  }, [botSays]);
+    const t = timers.current;
+    return () => t.forEach(window.clearTimeout);
+  }, []);
 
   // Keep the newest message in view without scrolling the page itself.
   useEffect(() => {
@@ -146,7 +177,9 @@ export default function ContactChat() {
 
   const submit = (e?: React.FormEvent) => {
     e?.preventDefault();
-    if (typing || !current) return;
+    if (!current) return;
+    // Answering before the bot finishes: show its pending lines first.
+    if (typing) flush();
     if (current.kind === "chips") {
       if (!picked.length) return setError("Pick at least one, or choose “Something else”.");
       return advance(picked, picked.join(", "));
@@ -165,14 +198,14 @@ export default function ContactChat() {
   const restart = () => {
     timers.current.forEach(window.clearTimeout);
     timers.current = [];
-    setMessages([]);
+    pending.current = null;
+    setMessages(GREETING);
     setAnswers(EMPTY);
     setStep(0);
     setDone(false);
     setDraft("");
     setPicked([]);
     setError("");
-    botSays(STEPS[0].bot(EMPTY));
   };
 
   const body = [
@@ -315,7 +348,6 @@ export default function ContactChat() {
                     key={t}
                     type="button"
                     aria-pressed={on}
-                    disabled={typing}
                     data-cursor-hover
                     onClick={() => {
                       setError("");
@@ -344,7 +376,7 @@ export default function ContactChat() {
                 ref={inputRef}
                 rows={2}
                 value={draft}
-                disabled={typing}
+                
                 onChange={(e) => {
                   setDraft(e.target.value);
                   setError("");
@@ -365,7 +397,7 @@ export default function ContactChat() {
                 type={current.kind === "text" ? "text" : current.kind}
                 autoComplete={current.key === "name" ? "name" : current.key === "email" ? "email" : "tel"}
                 value={draft}
-                disabled={typing}
+                
                 onChange={(e) => {
                   setDraft(e.target.value);
                   setError("");
@@ -379,7 +411,6 @@ export default function ContactChat() {
             {current.optional && !draft.trim() ? (
               <button
                 type="submit"
-                disabled={typing}
                 data-cursor-hover
                 className="h-11 shrink-0 rounded-full border border-lineDark bg-white px-5 text-sm font-semibold text-inkText transition-colors hover:border-accent hover:text-accent disabled:opacity-50"
               >
@@ -388,7 +419,7 @@ export default function ContactChat() {
             ) : (
               <button
                 type="submit"
-                disabled={typing}
+                
                 aria-label="Send"
                 data-cursor-hover
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-white shadow-[0_6px_18px_rgba(245,146,30,0.4)] transition-transform hover:scale-105 disabled:opacity-50"
