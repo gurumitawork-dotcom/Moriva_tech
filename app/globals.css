@@ -3,25 +3,148 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --header-h: 88px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F4F7FC;
+  color: #0E2A5C;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (pointer: fine) {
+  body.has-cursor,
+  body.has-cursor a,
+  body.has-cursor button {
+    cursor: none;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-sora), sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #F5921E;
+  color: #FFFFFF;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F5921E;
+}
+
+.touch-ripple {
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+  background: radial-gradient(circle, rgba(245, 146, 30, 0.28) 0%, rgba(245, 146, 30, 0.12) 60%, rgba(245, 146, 30, 0) 100%);
+  animation: touchRipple 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes touchRipple {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  60% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .touch-ripple {
+    animation-duration: 1ms;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(14, 42, 92, 0.09);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(14, 42, 92, 0.08);
+}
+
+.hover-glass:hover {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: transparent;
+}
+
+.marquee-pause:hover .marquee-track,
+.marquee-pause:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-pause {
+    overflow-x: auto;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* Contact chat: each new message pops up from below, like a messaging app. */
+.chat-bubble {
+  animation: chatIn 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes chatIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-bubble {
+    animation: none;
   }
 }
