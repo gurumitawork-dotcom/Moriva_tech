@@ -51,12 +51,10 @@ export default function ContactSection() {
           <Reveal>
             <ContactForm />
           </Reveal>
-          <Reveal delay={0.05} className="flex-1">
-            <RequestDemo />
-          </Reveal>
         </div>
 
-        <Reveal delay={0.1} className="lg:self-start">
+        <div className="flex flex-col gap-6 lg:gap-8">
+          <Reveal delay={0.1} className="lg:self-start">
           <aside className="relative flex h-fit lg:sticky lg:top-24 flex-col overflow-hidden rounded-lg bg-ink p-7 text-text md:p-9">
             <GradientMesh variant="navy" />
             <div
@@ -145,7 +143,12 @@ export default function ContactSection() {
               </div>
             </div>
           </aside>
-        </Reveal>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <RequestDemo />
+          </Reveal>
+        </div>
       </div>
     </section>
   );
