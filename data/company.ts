@@ -7,4 +7,5 @@ export const company = {
   /** Digits only, international format — used to build wa.me links. */
   whatsapp: "917901488784",
   whatsappAlt: "919346273793",
+  location: "Kadiyam - East Godavari District Andhra Pradesh - 533126",
 };
