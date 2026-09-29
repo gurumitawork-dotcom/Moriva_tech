@@ -148,14 +148,24 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex h-full flex-col overflow-hidden rounded-2xl border border-lineDark bg-white shadow-[0_30px_80px_-30px_rgba(11,35,71,0.35)]">
-      {/* Header */}
-      <div className="border-b border-lineDark bg-gradient-to-r from-inkText via-inkText/95 to-inkText/90 px-6 py-10 sm:px-8">
-        <h1 className="font-sora text-3xl font-800 leading-tight text-white sm:text-4xl">
-          Let's talk about your project
-        </h1>
-        <p className="mt-2 text-base text-white/80">
-          Share your vision and we'll craft the perfect solution for you.
-        </p>
+      {/* Header with Logo Watermark */}
+      <div className="relative border-b border-lineDark bg-gradient-to-r from-inkText via-inkText/95 to-inkText/90 px-6 py-10 sm:px-8 overflow-hidden">
+        {/* Logo Watermark */}
+        <div className="absolute inset-0 flex items-center justify-end opacity-[0.08] pointer-events-none overflow-hidden">
+          <svg className="h-96 w-96" viewBox="0 0 553 555" fill="currentColor" style={{ color: "white" }}>
+            <path d="M276.5 0C124 0 0 124 0 276.5S124 553 276.5 553 553 429 553 276.5 429 0 276.5 0zm0 520c-134 0-243.5-109.5-243.5-243.5S142.5 33 276.5 33 520 142.5 520 276.5 410.5 520 276.5 520z"/>
+          </svg>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10">
+          <h1 className="font-sora text-3xl font-800 leading-tight text-white sm:text-4xl">
+            Let's talk about your project
+          </h1>
+          <p className="mt-2 text-base text-white/80">
+            Share your vision and we'll craft the perfect solution for you.
+          </p>
+        </div>
       </div>
 
       {/* Form Content */}
