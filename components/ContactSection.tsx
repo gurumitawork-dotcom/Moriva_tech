@@ -31,7 +31,6 @@ const direct = [
   },
 ];
 
-const nextSteps = ["We reply within one working day", "A free discovery call", "A written scope & price"];
 
 /**
  * The contact page opens straight into a conversation: no hero, just the chat
@@ -47,15 +46,15 @@ export default function ContactSection() {
           The chat has a fixed height, so the demo card fills the rest of the
           column and both sides end level with the navy panel.
         */}
-        <div className="flex flex-col gap-6 lg:gap-8">
-          <Reveal>
+        <div className="flex flex-col gap-6 lg:gap-8 lg:h-full">
+          <Reveal className="h-full">
             <ContactForm />
           </Reveal>
         </div>
 
         <div className="flex flex-col gap-6 lg:gap-8 lg:h-full">
           <Reveal delay={0.1} className="flex-1">
-          <aside className="relative flex h-full flex-col overflow-hidden rounded-lg bg-ink p-7 text-text md:p-9">
+          <aside className="relative flex h-full flex-col overflow-hidden rounded-lg bg-ink p-6 text-text md:p-7">
             <GradientMesh variant="navy" />
             <div
               aria-hidden
@@ -75,7 +74,7 @@ export default function ContactSection() {
                 Available for new projects
               </span>
 
-              <h2 className="mt-6 font-sora text-3xl font-800 leading-[1.1] tracking-tight md:text-4xl">
+              <h2 className="mt-4 font-sora text-3xl font-800 leading-[1.1] tracking-tight md:text-4xl">
                 Rather skip
                 <br />
                 <span className="text-accent">the chat?</span>
@@ -84,14 +83,14 @@ export default function ContactSection() {
                 Every line below reaches the people who will build your product.
               </p>
 
-              <ul className="mt-7 border-t border-white/10">
+              <ul className="mt-5 border-t border-white/10">
                 {direct.map(({ label, value, href, external }) => (
                   <li key={href}>
                     <a
                       href={href}
                       data-cursor-hover
                       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="group flex items-center gap-4 border-b border-white/10 py-4"
+                      className="group flex items-center gap-4 border-b border-white/10 py-3"
                     >
                       <span className="flex min-w-0 flex-1 flex-col">
                         <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim">
@@ -121,21 +120,6 @@ export default function ContactSection() {
                 ))}
               </ul>
 
-              <div className="mt-8">
-                <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim">
-                  What happens next
-                </p>
-                <ol className="mt-4 flex flex-col gap-3">
-                  {nextSteps.map((s, i) => (
-                    <li key={s} className="flex items-center gap-3 text-sm text-white/90">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 font-sora text-xs font-800 text-accent">
-                        {i + 1}
-                      </span>
-                      {s}
-                    </li>
-                  ))}
-                </ol>
-              </div>
 
               <div className="mt-auto pt-10">
                 <p className="font-script text-2xl text-white/90">{company.tagline}</p>

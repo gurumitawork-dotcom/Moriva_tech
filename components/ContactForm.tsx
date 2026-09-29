@@ -294,7 +294,7 @@ export default function ContactForm() {
         </div>
 
         {/* Message */}
-        <div className="group pt-2">
+        <div className="group pt-2 flex-1 flex flex-col">
           <label htmlFor="message" className="flex items-center gap-3 text-sm font-semibold text-inkText mb-2.5">
             <span className="h-5 w-1 rounded-full bg-accent" />
             Tell us more <span className="text-accent font-bold">*</span>
@@ -305,8 +305,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="Describe your project, timeline, budget, or any other details..."
-            rows={5}
-            className="w-full resize-none bg-transparent border-b-2 border-lineDark/50 px-0 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-0 group-hover:border-lineDark/70"
+            className="w-full flex-1 min-h-[7rem] resize-none bg-transparent border-b-2 border-lineDark/50 px-0 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-0 group-hover:border-lineDark/70"
           />
         </div>
 
