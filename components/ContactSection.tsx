@@ -134,9 +134,9 @@ export default function ContactSection() {
 
                         <span
                           aria-hidden
-                          className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/20 text-white/50 transition-all duration-300 group-hover:border-accent/50 group-hover:bg-accent/10 group-hover:text-accent group-hover:scale-110"
+                          className="ml-3 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/5 text-white/60 transition-all duration-300 group-hover:border-accent/60 group-hover:bg-accent/15 group-hover:text-accent group-hover:scale-110"
                         >
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3 -rotate-45 transition-transform duration-300 group-hover:rotate-0">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5 -rotate-45 transition-transform duration-300 group-hover:rotate-0">
                             <path d="M5 12h14M13 6l6 6-6 6" />
                           </svg>
                         </span>
