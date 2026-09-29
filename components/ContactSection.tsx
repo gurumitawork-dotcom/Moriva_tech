@@ -31,13 +31,7 @@ const direct = [
   },
 ];
 
-const nextSteps = [
-  "We reply within one working day",
-  "A free discovery call",
-  "A written scope & price",
-  "Build your vision with our team",
-  "Launch and grow together"
-];
+const nextSteps = ["We reply within one working day", "A free discovery call", "A written scope & price"];
 
 /**
  * The contact page opens straight into a conversation: no hero, just the chat
@@ -145,22 +139,29 @@ export default function ContactSection() {
                 </ol>
               </div>
 
-              <div className="mt-10 pt-8 border-t border-white/10">
-                <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim mb-4">
-                  Why work with us
-                </p>
-                <div className="space-y-3">
-                  <div className="flex items-start gap-3">
-                    <span className="text-base">✨</span>
-                    <span className="text-sm text-white/85">10+ years of proven expertise</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-base">🚀</span>
-                    <span className="text-sm text-white/85">Agile & scalable solutions</span>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-base">💼</span>
-                    <span className="text-sm text-white/85">Dedicated support team</span>
+              {/* Visual Progress Timeline */}
+              <div className="mt-12 flex-1">
+                <div className="relative flex flex-col items-center justify-center h-full min-h-[200px] py-8">
+                  {/* Vertical Progress Line */}
+                  <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-accent/50 to-accent/20 transform -translate-x-1/2" />
+
+                  {/* Progress Nodes */}
+                  <div className="relative w-full flex flex-col gap-12">
+                    <div className="flex justify-center">
+                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-3 border-accent bg-ink">
+                        <div className="h-3 w-3 rounded-full bg-accent" />
+                      </div>
+                    </div>
+                    <div className="flex justify-center">
+                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent/40 bg-ink">
+                        <div className="h-2 w-2 rounded-full bg-accent/40" />
+                      </div>
+                    </div>
+                    <div className="flex justify-center">
+                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent/20 bg-ink">
+                        <div className="h-2 w-2 rounded-full bg-accent/20" />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
