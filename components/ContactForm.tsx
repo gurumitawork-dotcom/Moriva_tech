@@ -5,15 +5,15 @@ import { company } from "@/data/company";
 import { services } from "@/data/services";
 
 const SERVICE_OPTIONS = [
-  { value: "website-development", label: "Website Development" },
-  { value: "mobile-app-development", label: "Mobile App Development" },
-  { value: "cloud-solutions", label: "Cloud Solutions" },
-  { value: "cybersecurity-services", label: "Cybersecurity Services" },
-  { value: "ai-chat-bots", label: "AI Chatbots" },
-  { value: "ui-ux-design", label: "UI/UX Design" },
-  { value: "it-consulting", label: "IT Consulting" },
-  { value: "maintenance-support", label: "Maintenance & Support" },
-  { value: "seo-services", label: "SEO Services" },
+  { value: "website-development", label: "Website Development", icon: "🌐" },
+  { value: "mobile-app-development", label: "Mobile App Development", icon: "📱" },
+  { value: "cloud-solutions", label: "Cloud Solutions", icon: "☁️" },
+  { value: "cybersecurity-services", label: "Cybersecurity Services", icon: "🔒" },
+  { value: "ai-chat-bots", label: "AI Chatbots", icon: "🤖" },
+  { value: "ui-ux-design", label: "UI/UX Design", icon: "🎨" },
+  { value: "it-consulting", label: "IT Consulting", icon: "💼" },
+  { value: "maintenance-support", label: "Maintenance & Support", icon: "🔧" },
+  { value: "seo-services", label: "SEO Services", icon: "📊" },
 ];
 
 export default function ContactForm() {
@@ -224,7 +224,7 @@ export default function ContactForm() {
           <label className="block text-sm font-semibold text-inkText mb-3">
             What services interest you? <span className="text-accent font-bold">*</span>
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-3">
             {SERVICE_OPTIONS.map((service) => {
               const isSelected = formData.services.includes(service.value);
               return (
@@ -232,13 +232,14 @@ export default function ContactForm() {
                   key={service.value}
                   type="button"
                   onClick={() => handleServiceToggle(service.value)}
-                  className={`rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
+                  title={service.label}
+                  className={`flex items-center justify-center rounded-lg border-2 py-4 transition-all ${
                     isSelected
                       ? "border-accent bg-accent text-white"
                       : "border-lineDark bg-white text-inkText hover:border-accent/50"
                   }`}
                 >
-                  {service.label}
+                  <span className="text-4xl">{service.icon}</span>
                 </button>
               );
             })}
