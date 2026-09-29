@@ -172,59 +172,80 @@ export default function ContactForm() {
         {/* Form Fields - Relative to overlay */}
         <div className="relative z-10 space-y-6">
         {/* Name Field */}
-        <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-inkText mb-2">
+        <div className="group">
+          <label htmlFor="name" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
+            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
+              👤
+            </span>
             Name <span className="text-accent font-bold">*</span>
           </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="John Doe"
-            className="w-full rounded-lg border-2 border-lineDark bg-white px-4 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/50 focus:border-accent focus:ring-2 focus:ring-accent/20"
-          />
+          <div className="relative">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="John Doe"
+              className="w-full rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
+            />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
+          </div>
         </div>
 
         {/* Email Field */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-semibold text-inkText mb-2">
+        <div className="group">
+          <label htmlFor="email" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
+            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
+              ✉️
+            </span>
             Email <span className="text-accent font-bold">*</span>
           </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="you@company.com"
-            className="w-full rounded-lg border-2 border-lineDark bg-white px-4 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/50 focus:border-accent focus:ring-2 focus:ring-accent/20"
-          />
+          <div className="relative">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="you@company.com"
+              className="w-full rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
+            />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
+          </div>
         </div>
 
         {/* Phone Field */}
-        <div>
-          <label htmlFor="phone" className="block text-sm font-semibold text-inkText mb-2">
+        <div className="group">
+          <label htmlFor="phone" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
+            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
+              📞
+            </span>
             Phone <span className="text-xs font-normal text-inkTextDim">(Optional)</span>
           </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="+91 98765 43210"
-            className="w-full rounded-lg border-2 border-lineDark bg-white px-4 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/50 focus:border-accent focus:ring-2 focus:ring-accent/20"
-          />
+          <div className="relative">
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="+91 98765 43210"
+              className="w-full rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
+            />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
+          </div>
         </div>
 
         {/* Services */}
         <div>
-          <label className="block text-sm font-semibold text-inkText mb-3">
+          <label className="flex items-center gap-2 text-sm font-semibold text-inkText mb-4">
+            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
+              ⭐
+            </span>
             What services interest you? <span className="text-accent font-bold">*</span>
           </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-3">
             {SERVICE_OPTIONS.map((service) => {
               const isSelected = formData.services.includes(service.value);
               return (
@@ -232,13 +253,14 @@ export default function ContactForm() {
                   key={service.value}
                   type="button"
                   onClick={() => handleServiceToggle(service.value)}
-                  className={`rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
+                  title={service.label}
+                  className={`group flex items-center justify-center rounded-xl border-2 py-5 transition-all duration-300 ${
                     isSelected
-                      ? "border-accent bg-accent text-white"
-                      : "border-lineDark bg-white text-inkText hover:border-accent/50"
+                      ? "border-accent bg-gradient-to-br from-accent to-accent/90 text-white shadow-lg shadow-accent/30"
+                      : "border-lineDark/50 bg-gradient-to-br from-white/80 to-white/50 text-inkText hover:border-accent/50 hover:shadow-md hover:from-white hover:to-white"
                   }`}
                 >
-                  {service.label}
+                  <span className={`text-4xl transition-transform group-hover:scale-110 ${isSelected ? 'scale-110' : ''}`}>{service.icon}</span>
                 </button>
               );
             })}
@@ -246,19 +268,25 @@ export default function ContactForm() {
         </div>
 
         {/* Message */}
-        <div>
-          <label htmlFor="message" className="block text-sm font-semibold text-inkText mb-2">
+        <div className="group">
+          <label htmlFor="message" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
+            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
+              💬
+            </span>
             Tell us more <span className="text-accent font-bold">*</span>
           </label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Describe your project, timeline, budget, or any other details..."
-            rows={5}
-            className="w-full resize-none rounded-lg border-2 border-lineDark bg-white px-4 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/50 focus:border-accent focus:ring-2 focus:ring-accent/20"
-          />
+          <div className="relative">
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Describe your project, timeline, budget, or any other details..."
+              rows={5}
+              className="w-full resize-none rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
+            />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
+          </div>
         </div>
 
         {/* Error */}
@@ -271,13 +299,31 @@ export default function ContactForm() {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-lineDark bg-white px-6 py-6 sm:px-8">
+      <div className="border-t border-lineDark/50 bg-gradient-to-r from-white via-white to-accent/5 px-6 py-6 sm:px-8">
         <button
           type="submit"
           disabled={loading}
-          className="w-full rounded-lg bg-gradient-to-r from-accent to-accent/90 px-6 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-105 active:scale-95 disabled:opacity-70 text-base"
+          className="group w-full rounded-xl bg-gradient-to-r from-accent via-accent to-accent/90 px-6 py-4 font-semibold text-white shadow-lg shadow-accent/30 transition-all hover:shadow-xl hover:shadow-accent/40 hover:brightness-110 active:scale-95 disabled:opacity-70 text-base relative overflow-hidden"
         >
-          {loading ? "Sending..." : "Send Message"}
+          <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <span className="relative flex items-center justify-center gap-2">
+            {loading ? (
+              <>
+                <svg className="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
+                Sending...
+              </>
+            ) : (
+              <>
+                Send Message
+                <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </>
+            )}
+          </span>
         </button>
       </div>
     </form>
