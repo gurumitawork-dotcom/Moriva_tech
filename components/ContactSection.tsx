@@ -123,11 +123,11 @@ export default function ContactSection() {
                 ))}
               </ul>
 
-              <div className="mt-8">
+              <div className="mt-5 pt-5 border-t border-white/10">
                 <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim">
                   What happens next
                 </p>
-                <ol className="mt-4 flex flex-col gap-3">
+                <ol className="mt-3 flex flex-col gap-2">
                   {nextSteps.map((s, i) => (
                     <li key={s} className="flex items-center gap-3 text-sm text-white/90">
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 font-sora text-xs font-800 text-accent">
@@ -139,36 +139,9 @@ export default function ContactSection() {
                 </ol>
               </div>
 
-              {/* Visual Progress Timeline */}
-              <div className="mt-12 flex-1">
-                <div className="relative flex flex-col items-center justify-center h-full min-h-[200px] py-8">
-                  {/* Vertical Progress Line */}
-                  <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-accent via-accent/50 to-accent/20 transform -translate-x-1/2" />
-
-                  {/* Progress Nodes */}
-                  <div className="relative w-full flex flex-col gap-12">
-                    <div className="flex justify-center">
-                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-3 border-accent bg-ink">
-                        <div className="h-3 w-3 rounded-full bg-accent" />
-                      </div>
-                    </div>
-                    <div className="flex justify-center">
-                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent/40 bg-ink">
-                        <div className="h-2 w-2 rounded-full bg-accent/40" />
-                      </div>
-                    </div>
-                    <div className="flex justify-center">
-                      <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full border-2 border-accent/20 bg-ink">
-                        <div className="h-2 w-2 rounded-full bg-accent/20" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-auto pt-10">
-                <p className="font-script text-2xl text-white/90">{company.tagline}</p>
-                <p className="mt-1 text-xs text-textDim">{company.legalName}</p>
+              <div className="mt-auto pt-6">
+                <p className="font-script text-lg text-white/90">{company.tagline}</p>
+                <p className="mt-0.5 text-xs text-textDim">{company.legalName}</p>
               </div>
             </div>
           </aside>
