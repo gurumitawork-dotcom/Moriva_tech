@@ -149,13 +149,56 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="flex h-full flex-col overflow-hidden rounded-2xl border border-lineDark bg-white shadow-[0_30px_80px_-30px_rgba(11,35,71,0.35)]">
       {/* Header */}
-      <div className="border-b border-lineDark bg-gradient-to-r from-inkText via-inkText/95 to-inkText/90 px-6 py-10 sm:px-8">
-        <h1 className="font-sora text-3xl font-800 leading-tight text-white sm:text-4xl">
-          Let's talk about your project
-        </h1>
-        <p className="mt-2 text-base text-white/80">
-          Share your vision and we'll craft the perfect solution for you.
-        </p>
+      <div className="relative border-b border-lineDark bg-gradient-to-br from-inkText via-inkText to-inkText/95 px-6 py-12 sm:px-8 overflow-hidden">
+        {/* Decorative Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 200">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1" />
+              </pattern>
+            </defs>
+            <rect width="1200" height="200" fill="url(#grid)" />
+          </svg>
+        </div>
+
+        {/* Accent Line Top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/0 via-accent to-accent/0" />
+
+        {/* Decorative Circles */}
+        <div className="absolute top-8 right-8 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 w-40 h-40 bg-accent/5 rounded-full blur-3xl" />
+
+        {/* Content */}
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-1 w-12 bg-gradient-to-r from-accent to-accent/50 rounded-full" />
+            <span className="text-sm font-semibold text-accent tracking-widest">LET'S CREATE</span>
+          </div>
+
+          <h1 className="font-sora text-4xl font-800 leading-tight text-white sm:text-5xl max-w-2xl">
+            Let's talk about your project
+          </h1>
+          <p className="mt-4 text-lg text-white/85 max-w-xl leading-relaxed">
+            Share your vision and we'll craft the perfect solution for you.
+          </p>
+
+          {/* Stats or Features */}
+          <div className="flex flex-wrap gap-8 mt-8 pt-6 border-t border-white/10">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">✓</div>
+              <span className="text-sm text-white/80">Quick Response</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">✓</div>
+              <span className="text-sm text-white/80">Expert Team</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">✓</div>
+              <span className="text-sm text-white/80">Custom Solutions</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Form Content */}
