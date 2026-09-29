@@ -254,13 +254,13 @@ export default function ContactForm() {
                   type="button"
                   onClick={() => handleServiceToggle(service.value)}
                   title={service.label}
-                  className={`group flex items-center justify-center rounded-xl border-2 py-5 transition-all duration-300 ${
+                  className={`group flex items-center justify-center rounded-xl border-2 py-6 transition-all duration-300 ${
                     isSelected
-                      ? "border-accent bg-gradient-to-br from-accent to-accent/90 text-white shadow-lg shadow-accent/30"
-                      : "border-lineDark/50 bg-gradient-to-br from-white/80 to-white/50 text-inkText hover:border-accent/50 hover:shadow-md hover:from-white hover:to-white"
+                      ? "border-accent bg-gradient-to-br from-accent to-accent/90 shadow-lg shadow-accent/40"
+                      : "border-lineDark/40 bg-white hover:border-accent hover:shadow-md"
                   }`}
                 >
-                  <span className={`text-4xl transition-transform group-hover:scale-110 ${isSelected ? 'scale-110' : ''}`}>{service.icon}</span>
+                  <span className={`text-5xl transition-transform group-hover:scale-125 ${isSelected ? 'scale-125' : ''}`}>{service.icon}</span>
                 </button>
               );
             })}
