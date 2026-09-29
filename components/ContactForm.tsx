@@ -5,15 +5,15 @@ import { company } from "@/data/company";
 import { services } from "@/data/services";
 
 const SERVICE_OPTIONS = [
-  { value: "website-development", label: "Website Development", icon: "🌐" },
-  { value: "mobile-app-development", label: "Mobile App Development", icon: "📱" },
-  { value: "cloud-solutions", label: "Cloud Solutions", icon: "☁️" },
-  { value: "cybersecurity-services", label: "Cybersecurity Services", icon: "🔒" },
-  { value: "ai-chat-bots", label: "AI Chatbots", icon: "🤖" },
-  { value: "ui-ux-design", label: "UI/UX Design", icon: "🎨" },
-  { value: "it-consulting", label: "IT Consulting", icon: "💼" },
-  { value: "maintenance-support", label: "Maintenance & Support", icon: "🔧" },
-  { value: "seo-services", label: "SEO Services", icon: "📊" },
+  { value: "website-development", label: "Website Development" },
+  { value: "mobile-app-development", label: "Mobile App Development" },
+  { value: "cloud-solutions", label: "Cloud Solutions" },
+  { value: "cybersecurity-services", label: "Cybersecurity Services" },
+  { value: "ai-chat-bots", label: "AI Chatbots" },
+  { value: "ui-ux-design", label: "UI/UX Design" },
+  { value: "it-consulting", label: "IT Consulting" },
+  { value: "maintenance-support", label: "Maintenance & Support" },
+  { value: "seo-services", label: "SEO Services" },
 ];
 
 export default function ContactForm() {
@@ -161,11 +161,11 @@ export default function ContactForm() {
       {/* Form Content */}
       <div className="relative flex-1 overflow-y-auto px-6 py-8 sm:px-8 space-y-6">
         {/* Logo Watermark - Center Background */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.05] pointer-events-none">
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none">
           <img
-            src="/moriva-logo.png"
+            src="/moriva-icon.png"
             alt=""
-            className="h-64 w-64 object-contain"
+            className="h-80 w-80 object-contain"
           />
         </div>
 
@@ -224,7 +224,7 @@ export default function ContactForm() {
           <label className="block text-sm font-semibold text-inkText mb-3">
             What services interest you? <span className="text-accent font-bold">*</span>
           </label>
-          <div className="grid grid-cols-3 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {SERVICE_OPTIONS.map((service) => {
               const isSelected = formData.services.includes(service.value);
               return (
@@ -232,14 +232,13 @@ export default function ContactForm() {
                   key={service.value}
                   type="button"
                   onClick={() => handleServiceToggle(service.value)}
-                  title={service.label}
-                  className={`flex items-center justify-center rounded-lg border-2 py-4 transition-all ${
+                  className={`rounded-lg border-2 px-4 py-2.5 text-sm font-medium transition-all ${
                     isSelected
                       ? "border-accent bg-accent text-white"
                       : "border-lineDark bg-white text-inkText hover:border-accent/50"
                   }`}
                 >
-                  <span className="text-4xl">{service.icon}</span>
+                  {service.label}
                 </button>
               );
             })}
