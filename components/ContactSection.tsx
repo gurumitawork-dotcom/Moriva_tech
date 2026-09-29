@@ -56,8 +56,8 @@ export default function ContactSection() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.1}>
-          <aside className="relative flex h-full flex-col overflow-hidden rounded-lg bg-ink p-7 text-text md:p-9">
+        <Reveal delay={0.1} className="lg:self-start">
+          <aside className="relative flex h-fit lg:sticky lg:top-24 flex-col overflow-hidden rounded-lg bg-ink p-7 text-text md:p-9">
             <GradientMesh variant="navy" />
             <div
               aria-hidden
@@ -68,7 +68,7 @@ export default function ContactSection() {
               }}
             />
 
-            <div className="relative flex h-full flex-col">
+            <div className="relative flex flex-col">
               <span className="inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/85">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 motion-safe:animate-ping" />
@@ -123,11 +123,11 @@ export default function ContactSection() {
                 ))}
               </ul>
 
-              <div className="mt-5 pt-5 border-t border-white/10">
+              <div className="mt-8">
                 <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim">
                   What happens next
                 </p>
-                <ol className="mt-3 flex flex-col gap-2">
+                <ol className="mt-4 flex flex-col gap-3">
                   {nextSteps.map((s, i) => (
                     <li key={s} className="flex items-center gap-3 text-sm text-white/90">
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 font-sora text-xs font-800 text-accent">
@@ -139,9 +139,9 @@ export default function ContactSection() {
                 </ol>
               </div>
 
-              <div className="mt-auto pt-6">
-                <p className="font-script text-lg text-white/90">{company.tagline}</p>
-                <p className="mt-0.5 text-xs text-textDim">{company.legalName}</p>
+              <div className="mt-8">
+                <p className="font-script text-2xl text-white/90">{company.tagline}</p>
+                <p className="mt-1 text-xs text-textDim">{company.legalName}</p>
               </div>
             </div>
           </aside>
