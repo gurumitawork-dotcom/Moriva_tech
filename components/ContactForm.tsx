@@ -108,7 +108,7 @@ export default function ContactForm() {
             Message received
           </h2>
           <p className="mt-3 text-base leading-relaxed text-inkTextDim">
-            Thanks {data.name?.split(" ")[0]}, we've got your inquiry. Our team will review everything and reach out within one working day.
+            Thanks {data.name?.split(" ")[0]}, we&apos;ve got your inquiry. Our team will review everything and reach out within one working day.
           </p>
 
           <div className="mt-8 space-y-3">
