@@ -216,76 +216,59 @@ export default function ContactForm() {
         <div className="relative z-10 space-y-6">
         {/* Name Field */}
         <div className="group">
-          <label htmlFor="name" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
-              👤
-            </span>
+          <label htmlFor="name" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Name <span className="text-accent font-bold">*</span>
           </label>
-          <div className="relative">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="John Doe"
-              className="w-full rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
-            />
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
-          </div>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="John Doe"
+            className="w-full bg-transparent border-b-2 border-lineDark/50 px-0 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-0 group-hover:border-lineDark/70"
+          />
         </div>
 
         {/* Email Field */}
         <div className="group">
-          <label htmlFor="email" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
-              ✉️
-            </span>
+          <label htmlFor="email" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Email <span className="text-accent font-bold">*</span>
           </label>
-          <div className="relative">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="you@company.com"
-              className="w-full rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
-            />
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
-          </div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="you@company.com"
+            className="w-full bg-transparent border-b-2 border-lineDark/50 px-0 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-0 group-hover:border-lineDark/70"
+          />
         </div>
 
         {/* Phone Field */}
         <div className="group">
-          <label htmlFor="phone" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
-              📞
-            </span>
+          <label htmlFor="phone" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Phone <span className="text-xs font-normal text-inkTextDim">(Optional)</span>
           </label>
-          <div className="relative">
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="+91 98765 43210"
-              className="w-full rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
-            />
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
-          </div>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="+91 98765 43210"
+            className="w-full bg-transparent border-b-2 border-lineDark/50 px-0 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-0 group-hover:border-lineDark/70"
+          />
         </div>
 
         {/* Services */}
-        <div>
+        <div className="pt-2">
           <label className="flex items-center gap-2 text-sm font-semibold text-inkText mb-4">
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
-              ⭐
-            </span>
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             What services interest you? <span className="text-accent font-bold">*</span>
           </label>
           <div className="grid grid-cols-3 sm:grid-cols-3 gap-3">
@@ -311,25 +294,20 @@ export default function ContactForm() {
         </div>
 
         {/* Message */}
-        <div className="group">
-          <label htmlFor="message" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-3">
-            <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/70 text-white text-xs">
-              💬
-            </span>
+        <div className="group pt-2">
+          <label htmlFor="message" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             Tell us more <span className="text-accent font-bold">*</span>
           </label>
-          <div className="relative">
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Describe your project, timeline, budget, or any other details..."
-              rows={5}
-              className="w-full resize-none rounded-xl border-2 border-lineDark/50 bg-gradient-to-br from-white to-white/50 px-4 py-3.5 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:bg-white group-hover:border-lineDark/70 shadow-sm group-hover:shadow-md"
-            />
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 pointer-events-none transition-all" />
-          </div>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Describe your project, timeline, budget, or any other details..."
+            rows={5}
+            className="w-full resize-none bg-transparent border-b-2 border-lineDark/50 px-0 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-0 group-hover:border-lineDark/70"
+          />
         </div>
 
         {/* Error */}
