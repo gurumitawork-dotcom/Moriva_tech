@@ -98,8 +98,8 @@ export default function ContactSection() {
                     >
                       <div className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "radial-gradient(circle at left, rgba(245,146,30,0.3), transparent 70%)" }} />
 
-                      <div className="relative flex items-center gap-3">
-                        <div className="flex h-6 w-6 items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                      <div className="relative flex w-full items-center gap-3">
+                        <div className="flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300 group-hover:scale-110">
                           {isWhatsApp && (
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-accent">
                               <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.2 1.26-1.96 1.42-.52.11-1.2.2-3.5-.75-2.94-1.22-4.83-4.2-4.98-4.4-.14-.19-1.19-1.58-1.19-3.02 0-1.44.75-2.14 1.02-2.43.27-.29.58-.36.78-.36h.56c.18.01.42-.7.65.5.24.58.82 2.01.89 2.16.07.14.12.31.02.5-.09.19-.14.31-.28.48l-.42.49c-.14.14-.28.3-.12.58.16.29.71 1.18 1.53 1.91 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.63-.14.26.1 1.65.78 1.93.92.28.14.47.21.54.33.07.11.07.66-.17 1.34Z" />
@@ -117,7 +117,7 @@ export default function ContactSection() {
                           )}
                         </div>
 
-                        <div className="flex flex-col">
+                        <div className="flex min-w-0 flex-1 flex-col">
                           <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-white/60 transition-colors duration-300 group-hover:text-accent">
                             {label}
                           </span>
@@ -134,7 +134,7 @@ export default function ContactSection() {
 
                         <span
                           aria-hidden
-                          className="ml-3 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/5 text-white/60 transition-all duration-300 group-hover:border-accent/60 group-hover:bg-accent/15 group-hover:text-accent group-hover:scale-110"
+                          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/5 text-white/60 transition-all duration-300 group-hover:border-accent/60 group-hover:bg-accent/15 group-hover:text-accent group-hover:scale-110"
                         >
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5 -rotate-45 transition-transform duration-300 group-hover:rotate-0">
                             <path d="M5 12h14M13 6l6 6-6 6" />
