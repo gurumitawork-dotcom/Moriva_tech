@@ -13,14 +13,14 @@ const direct = [
   },
   {
     label: "Call",
-    value: company.phones[2],
-    href: `tel:${company.phones[2].replace(/\s+/g, "")}`,
+    value: company.phones[1],
+    href: `tel:${company.phones[1].replace(/\s+/g, "")}`,
     external: false,
   },
   {
     label: "Call",
-    value: company.phones[0],
-    href: `tel:${company.phones[0].replace(/\s+/g, "")}`,
+    value: company.phones[2],
+    href: `tel:${company.phones[2].replace(/\s+/g, "")}`,
     external: false,
   },
   {
