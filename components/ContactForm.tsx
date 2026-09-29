@@ -5,15 +5,15 @@ import { company } from "@/data/company";
 import { services } from "@/data/services";
 
 const SERVICE_OPTIONS = [
-  { value: "website-development", label: "Website Development" },
-  { value: "mobile-app-development", label: "Mobile App Development" },
-  { value: "cloud-solutions", label: "Cloud Solutions" },
-  { value: "cybersecurity-services", label: "Cybersecurity Services" },
-  { value: "ai-chat-bots", label: "AI Chatbots" },
-  { value: "ui-ux-design", label: "UI/UX Design" },
-  { value: "it-consulting", label: "IT Consulting" },
-  { value: "maintenance-support", label: "Maintenance & Support" },
-  { value: "seo-services", label: "SEO Services" },
+  { value: "website-development", label: "Website Development", short: "Website" },
+  { value: "mobile-app-development", label: "Mobile App Development", short: "Mobile App" },
+  { value: "cloud-solutions", label: "Cloud Solutions", short: "Cloud" },
+  { value: "cybersecurity-services", label: "Cybersecurity Services", short: "Security" },
+  { value: "ai-chat-bots", label: "AI Chatbots", short: "AI Chatbot" },
+  { value: "ui-ux-design", label: "UI/UX Design", short: "UI/UX" },
+  { value: "it-consulting", label: "IT Consulting", short: "Consulting" },
+  { value: "maintenance-support", label: "Maintenance & Support", short: "Support" },
+  { value: "seo-services", label: "SEO Services", short: "SEO" },
 ];
 
 export default function ContactForm() {
@@ -254,13 +254,13 @@ export default function ContactForm() {
                   type="button"
                   onClick={() => handleServiceToggle(service.value)}
                   title={service.label}
-                  className={`group flex items-center justify-center rounded-xl border-2 py-6 transition-all duration-300 ${
+                  className={`group flex items-center justify-center rounded-xl border-2 py-4 px-3 transition-all duration-300 text-sm font-semibold ${
                     isSelected
-                      ? "border-accent bg-gradient-to-br from-accent to-accent/90 shadow-lg shadow-accent/40"
-                      : "border-lineDark/40 bg-white hover:border-accent hover:shadow-md"
+                      ? "border-accent bg-gradient-to-br from-accent to-accent/90 text-white shadow-lg shadow-accent/40"
+                      : "border-lineDark/40 bg-white text-inkText hover:border-accent hover:shadow-md hover:bg-accent/5"
                   }`}
                 >
-                  <span className={`text-5xl transition-transform group-hover:scale-125 ${isSelected ? 'scale-125' : ''}`}>{service.icon}</span>
+                  <span className="text-center leading-tight">{service.short}</span>
                 </button>
               );
             })}
