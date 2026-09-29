@@ -87,6 +87,7 @@ export default function ContactSection() {
                 {direct.map(({ label, value, href, external }) => {
                   const isWhatsApp = label === "WhatsApp";
                   const isEmail = label === "Email";
+                  const isCall = label === "Call";
 
                   return (
                     <a
@@ -94,11 +95,34 @@ export default function ContactSection() {
                       href={href}
                       data-cursor-hover
                       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="group relative inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/[0.05] px-4 py-2.5 transition-all duration-300 hover:border-accent/70 hover:bg-white/[0.08]"
+                      className="group relative inline-flex items-center overflow-hidden rounded-full border border-white/15 transition-all duration-300 hover:border-accent/50"
                     >
-                      <div className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "radial-gradient(circle at left, rgba(245,146,30,0.3), transparent 70%)" }} />
+                      {/* Gradient background */}
+                      <div
+                        className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-100"
+                        style={{
+                          background: isWhatsApp
+                            ? "linear-gradient(135deg, rgba(25,195,109,0.1) 0%, rgba(245,146,30,0.05) 100%)"
+                            : isEmail
+                            ? "linear-gradient(135deg, rgba(220,53,69,0.1) 0%, rgba(245,146,30,0.05) 100%)"
+                            : "linear-gradient(135deg, rgba(65,105,225,0.1) 0%, rgba(245,146,30,0.05) 100%)",
+                          opacity: 0.6,
+                        }}
+                      />
 
-                      <div className="relative flex items-center gap-3">
+                      {/* Left accent strip */}
+                      <div
+                        className="absolute left-0 top-0 bottom-0 w-1 transition-all duration-300 group-hover:w-1.5"
+                        style={{
+                          background: isWhatsApp
+                            ? "#19C36D"
+                            : isEmail
+                            ? "#DC3545"
+                            : "#4169E1",
+                        }}
+                      />
+
+                      <div className="relative flex items-center gap-3 px-4 py-2.5 ml-0.5">
                         <div className="flex h-6 w-6 items-center justify-center transition-transform duration-300 group-hover:scale-110">
                           {isWhatsApp && (
                             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-accent">
@@ -110,7 +134,7 @@ export default function ContactSection() {
                               <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                             </svg>
                           )}
-                          {!isWhatsApp && !isEmail && (
+                          {isCall && (
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-accent">
                               <path d="M6.6 3h2.2l1.4 3.5-1.7 1.2a12 12 0 0 0 5.8 5.8l1.2-1.7L19 13.2v2.2A2.4 2.4 0 0 1 16.4 18 13.4 13.4 0 0 1 6 7.6 2.4 2.4 0 0 1 6.6 3Z" />
                             </svg>
