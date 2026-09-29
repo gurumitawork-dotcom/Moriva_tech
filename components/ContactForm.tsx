@@ -149,7 +149,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="flex h-full flex-col overflow-hidden rounded-2xl border border-lineDark bg-white shadow-[0_30px_80px_-30px_rgba(11,35,71,0.35)]">
       {/* Header */}
-      <div className="relative border-b border-lineDark bg-gradient-to-br from-inkText via-inkText to-inkText/95 px-6 py-12 sm:px-8 overflow-hidden">
+      <div className="relative border-b border-lineDark bg-gradient-to-br from-inkText via-inkText to-inkText/95 px-6 py-8 sm:px-8 overflow-hidden">
         {/* Decorative Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 1200 200">
@@ -179,12 +179,12 @@ export default function ContactForm() {
           <h1 className="font-sora text-4xl font-800 leading-tight text-white sm:text-5xl max-w-2xl">
             Let's talk about your project
           </h1>
-          <p className="mt-4 text-lg text-white/85 max-w-xl leading-relaxed">
+          <p className="mt-2 text-lg text-white/85 max-w-xl leading-relaxed">
             Share your vision and we'll craft the perfect solution for you.
           </p>
 
           {/* Stats or Features */}
-          <div className="flex flex-wrap gap-8 mt-8 pt-6 border-t border-white/10">
+          <div className="flex flex-wrap gap-6 mt-6 pt-4 border-t border-white/10">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center text-accent font-bold">✓</div>
               <span className="text-sm text-white/80">Quick Response</span>
