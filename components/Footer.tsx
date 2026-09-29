@@ -81,6 +81,13 @@ function RowIcon({ href }: { href: string }) {
       </svg>
     );
   }
+  if (href === "#") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-3.5 w-3.5 shrink-0 text-accent">
+        <path d="M12 1.5C7.3 1.5 3.5 5.3 3.5 10c0 6 8.5 12 8.5 12s8.5-6 8.5-12c0-4.7-3.8-8.5-8.5-8.5zm0 11.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
+      </svg>
+    );
+  }
   return null;
 }
 
