@@ -77,29 +77,31 @@ export default function ContactSection() {
                 Available for new projects
               </span>
 
-              <h2 className="mt-6 font-sora text-3xl font-800 leading-[1.1] tracking-tight md:text-4xl">
-                Rather skip
-                <br />
-                <span className="text-accent">the chat?</span>
-              </h2>
-              <p className="mt-3 text-sm leading-relaxed text-textDim">
+              <div className="mt-6 border-l-4 border-accent pl-4">
+                <h2 className="font-sora text-3xl font-800 leading-[1.1] tracking-tight md:text-4xl">
+                  Rather skip
+                  <br />
+                  <span className="text-accent">the chat?</span>
+                </h2>
+              </div>
+              <p className="mt-4 text-sm leading-relaxed text-white/80">
                 Every line below reaches the people who will build your product.
               </p>
 
-              <ul className="mt-7 border-t border-white/10">
+              <ul className="mt-8 space-y-3">
                 {direct.map(({ label, value, href, external }) => (
                   <li key={href}>
                     <a
                       href={href}
                       data-cursor-hover
                       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="group flex items-center gap-4 border-b border-white/10 py-4"
+                      className="group flex items-center gap-4 rounded-lg border border-white/15 bg-gradient-to-r from-white/5 to-white/0 px-4 py-4 transition-all duration-300 hover:border-accent hover:bg-gradient-to-r hover:from-accent/15 hover:to-accent/5"
                     >
                       <span className="flex min-w-0 flex-1 flex-col">
-                        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim">
+                        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim group-hover:text-accent/80 transition-colors">
                           {label}
                         </span>
-                        <span className="mt-0.5 font-sora text-base font-700 tracking-tight transition-colors group-hover:text-accent md:text-lg">
+                        <span className="mt-1 font-sora text-base font-700 tracking-tight transition-colors group-hover:text-accent md:text-lg">
                           {value.includes("@") ? (
                             <>
                               {value.split("@")[0]}
@@ -112,9 +114,9 @@ export default function ContactSection() {
                       </span>
                       <span
                         aria-hidden
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 text-white/70 transition-all duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white"
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/5 text-white/70 transition-all duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white shadow-lg group-hover:shadow-lg group-hover:shadow-accent/30"
                       >
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 -rotate-45 transition-transform duration-300 group-hover:rotate-0">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5">
                           <path d="M5 12h14M13 6l6 6-6 6" />
                         </svg>
                       </span>
@@ -123,17 +125,17 @@ export default function ContactSection() {
                 ))}
               </ul>
 
-              <div className="mt-8">
+              <div className="mt-10 pt-8 border-t border-white/10">
                 <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-textDim">
                   What happens next
                 </p>
-                <ol className="mt-4 flex flex-col gap-3">
+                <ol className="mt-5 flex flex-col gap-3.5">
                   {nextSteps.map((s, i) => (
-                    <li key={s} className="flex items-center gap-3 text-sm text-white/90">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 font-sora text-xs font-800 text-accent">
+                    <li key={s} className="flex items-start gap-3.5 text-sm text-white/90">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent/80 font-sora text-xs font-800 text-white shadow-lg shadow-accent/30 mt-0.5">
                         {i + 1}
                       </span>
-                      {s}
+                      <span className="pt-0.5">{s}</span>
                     </li>
                   ))}
                 </ol>
