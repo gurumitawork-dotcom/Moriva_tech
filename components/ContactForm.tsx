@@ -307,6 +307,7 @@ export default function ContactForm() {
             placeholder="Describe your project, timeline, budget, or any other details..."
             className="w-full flex-1 min-h-[7rem] resize-none bg-transparent border-b-2 border-lineDark/50 px-0 py-3 text-base text-inkText outline-none transition-all placeholder:text-inkTextDim/40 focus:border-accent focus:ring-0 group-hover:border-lineDark/70"
           />
+          <p className="mt-3 text-xs text-inkTextDim">💡 <span className="font-medium">Tip:</span> More details help us understand your vision better — budget, timeline, and current state are all helpful.</p>
         </div>
 
         {/* Error */}
