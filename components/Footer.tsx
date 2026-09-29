@@ -35,6 +35,7 @@ const columns = [
         label: company.phones[1],
         href: "tel:" + company.phones[1].replace(/\s+/g, ""),
       },
+      { label: company.location, href: "#" },
     ],
   },
 ];
