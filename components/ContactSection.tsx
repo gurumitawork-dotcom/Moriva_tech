@@ -1,6 +1,6 @@
 import Reveal from "./Reveal";
 import GradientMesh from "./GradientMesh";
-import ContactChat from "./ContactChat";
+import ContactForm from "./ContactForm";
 import RequestDemo from "./RequestDemo";
 import { company } from "@/data/company";
 
@@ -49,7 +49,7 @@ export default function ContactSection() {
         */}
         <div className="flex flex-col gap-6 lg:gap-8">
           <Reveal>
-            <ContactChat />
+            <ContactForm />
           </Reveal>
           <Reveal delay={0.05} className="flex-1">
             <RequestDemo />
