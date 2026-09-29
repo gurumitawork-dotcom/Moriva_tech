@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { company } from "@/data/company";
-import { services } from "@/data/services";
 
 const SERVICE_OPTIONS = [
   { value: "website-development", label: "Website Development", short: "Website" },
@@ -173,14 +173,14 @@ export default function ContactForm() {
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-1 w-12 bg-gradient-to-r from-accent to-accent/50 rounded-full" />
-            <span className="text-sm font-semibold text-accent tracking-widest">LET'S CREATE</span>
+            <span className="text-sm font-semibold text-accent tracking-widest">LET&apos;S CREATE</span>
           </div>
 
           <h1 className="font-sora text-4xl font-800 leading-tight text-white sm:text-5xl max-w-2xl">
-            Let's talk about your project
+            Let&apos;s talk about your project
           </h1>
           <p className="mt-2 text-lg text-white/85 max-w-xl leading-relaxed">
-            Share your vision and we'll craft the perfect solution for you.
+            Share your vision and we&apos;ll craft the perfect solution for you.
           </p>
 
           {/* Stats or Features */}
@@ -205,9 +205,11 @@ export default function ContactForm() {
       <div className="relative flex-1 overflow-y-auto px-6 py-8 sm:px-8 space-y-6">
         {/* Logo Watermark - Center Background */}
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none">
-          <img
+          <Image
             src="/moriva-icon.png"
             alt=""
+            width={320}
+            height={320}
             className="h-80 w-80 object-contain"
           />
         </div>

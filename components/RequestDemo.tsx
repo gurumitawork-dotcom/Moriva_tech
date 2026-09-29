@@ -38,13 +38,6 @@ export default function RequestDemo() {
   const whatsappHref = `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(text)}`;
   const mailHref = `mailto:${company.email}?subject=${encodeURIComponent("Demo request")}&body=${encodeURIComponent(text.replace(/\*/g, ""))}`;
 
-  const chip = (on: boolean) =>
-    `rounded-full border px-3.5 py-1.5 text-sm font-medium transition-all ${
-      on
-        ? "border-accent bg-accent text-white shadow-[0_6px_16px_rgba(245,146,30,0.3)]"
-        : "border-lineDark bg-white text-inkText hover:border-accent/50"
-    }`;
-
   return (
     <div className="relative overflow-hidden rounded-lg border border-lineDark bg-surface p-5 shadow-[0_30px_80px_-30px_rgba(11,35,71,0.3)] md:p-6">
       {/* warm corner glow so the card reads as the "see it live" moment */}
