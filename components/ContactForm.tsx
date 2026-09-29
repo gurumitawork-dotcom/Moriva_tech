@@ -216,8 +216,8 @@ export default function ContactForm() {
         <div className="relative z-10 space-y-6">
         {/* Name Field */}
         <div className="group">
-          <label htmlFor="name" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <label htmlFor="name" className="flex items-center gap-3 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-5 w-1 rounded-full bg-accent" />
             Name <span className="text-accent font-bold">*</span>
           </label>
           <input
@@ -233,8 +233,8 @@ export default function ContactForm() {
 
         {/* Email Field */}
         <div className="group">
-          <label htmlFor="email" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <label htmlFor="email" className="flex items-center gap-3 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-5 w-1 rounded-full bg-accent" />
             Email <span className="text-accent font-bold">*</span>
           </label>
           <input
@@ -250,8 +250,8 @@ export default function ContactForm() {
 
         {/* Phone Field */}
         <div className="group">
-          <label htmlFor="phone" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <label htmlFor="phone" className="flex items-center gap-3 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-5 w-1 rounded-full bg-accent" />
             Phone <span className="text-xs font-normal text-inkTextDim">(Optional)</span>
           </label>
           <input
@@ -267,8 +267,8 @@ export default function ContactForm() {
 
         {/* Services */}
         <div className="pt-2">
-          <label className="flex items-center gap-2 text-sm font-semibold text-inkText mb-4">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <label className="flex items-center gap-3 text-sm font-semibold text-inkText mb-4">
+            <span className="h-5 w-1 rounded-full bg-accent" />
             What services interest you? <span className="text-accent font-bold">*</span>
           </label>
           <div className="grid grid-cols-3 sm:grid-cols-3 gap-3">
@@ -295,8 +295,8 @@ export default function ContactForm() {
 
         {/* Message */}
         <div className="group pt-2">
-          <label htmlFor="message" className="flex items-center gap-2 text-sm font-semibold text-inkText mb-2.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <label htmlFor="message" className="flex items-center gap-3 text-sm font-semibold text-inkText mb-2.5">
+            <span className="h-5 w-1 rounded-full bg-accent" />
             Tell us more <span className="text-accent font-bold">*</span>
           </label>
           <textarea
