@@ -171,9 +171,10 @@ export default function ContactForm() {
 
         {/* Content */}
         <div className="relative z-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-1 w-12 bg-gradient-to-r from-accent to-accent/50 rounded-full" />
-            <span className="text-sm font-semibold text-accent tracking-widest">LET&apos;S CREATE</span>
+          <div className="mb-4">
+            <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold text-accent md:text-sm">
+              Let&apos;s Create
+            </span>
           </div>
 
           <h1 className="font-sora text-4xl font-800 leading-tight text-white sm:text-5xl max-w-2xl">

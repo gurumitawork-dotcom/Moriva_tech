@@ -9,16 +9,55 @@ import WhyPortfolio from "@/components/WhyPortfolio";
 import PortfolioProcess from "@/components/PortfolioProcess";
 import RelatedServices from "@/components/RelatedServices";
 import CtaBand from "@/components/CtaBand";
+import { company } from "@/data/company";
+import { SITE_URL, SHARE_IMAGE } from "@/data/seo";
+
+const TITLE = "Portfolio — Moriva Technologies";
+const DESCRIPTION =
+  "Explore Moriva Technologies' portfolio of websites, business applications and mobile solutions built to solve real-world challenges and support business growth.";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Moriva Technologies",
-  description:
-    "Websites, web apps, member portals and mobile applications designed, built and shipped by Moriva Technologies.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}/portfolio/` },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/portfolio/`,
+    siteName: company.name,
+    type: "website",
+    images: [SHARE_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [SHARE_IMAGE.url],
+  },
+};
+
+/* Escapes "<" so the serialized JSON can never prematurely close this
+   script tag or be parsed as markup. */
+function toJsonLdScript(data: unknown) {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
+}
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+    { "@type": "ListItem", position: 2, name: "Portfolio", item: `${SITE_URL}/portfolio/` },
+  ],
 };
 
 export default function PortfolioPage() {
   return (
     <div className="pt-[88px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLdScript(breadcrumbJsonLd) }}
+      />
       <PortfolioHero />
 
       <section

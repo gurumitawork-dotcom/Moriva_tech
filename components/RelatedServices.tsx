@@ -4,7 +4,11 @@ import GradientMesh from "./GradientMesh";
 import Icon from "./Icon";
 import { services } from "@/data/services";
 
-export default function RelatedServices() {
+export default function RelatedServices({ currentSlug }: { currentSlug?: string } = {}) {
+  const relatedServices = currentSlug
+    ? services.filter((service) => service.slug !== currentSlug)
+    : services;
+
   return (
     <section className="relative overflow-hidden bg-paper pb-14 pt-20 md:pb-16 md:pt-24">
       <GradientMesh variant="light" fadeBottom />
@@ -30,7 +34,7 @@ export default function RelatedServices() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {services.map((service, i) => (
+          {relatedServices.map((service, i) => (
             <Reveal key={service.number} delay={0.03 * i} className="h-full">
               <Link
                 href={"/services/" + service.slug}

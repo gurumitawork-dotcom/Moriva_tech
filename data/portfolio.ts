@@ -3,88 +3,67 @@ export type Shot = {
   alt: string;
   /** Shown in the browser chrome's address pill for this screenshot. */
   label: string;
-  /** The live URL this screenshot came from — the card's link follows it. */
-  href: string;
+  /** The live URL this screenshot came from — the card's link follows it. Omit when there is no public link to show. */
+  href?: string;
   /** Overrides the link text when the host name should not be shown. */
   linkLabel?: string;
 };
 
-export type PortfolioProject = {
+export type ShowcaseSection = {
   id: string;
+  /** Matches a filter on the full portfolio page. */
   category: string;
   title: string;
-  client: string;
   description: string;
   tags: string[];
   outcome: string;
-  liveHref?: string;
-  liveLabel?: string;
-  shots: Shot[];
-  /** Roles panel used when a project cannot be shown publicly. */
+  /** Up to four representative screenshots — never a specific client's live link. */
+  images: Shot[];
+  /** Feature-chip panel shown instead of screenshots when a section has no public imagery. */
   privatePanel?: { note: string; roles: string[] };
 };
 
-export const portfolio: PortfolioProject[] = [
+export const portfolioShowcase: ShowcaseSection[] = [
   {
-    id: "nurseries",
-    category: "Websites / SEO",
-    title: "Kadiyam Nursery Websites",
-    client: "NVK Nursery & Rohini Nursery",
+    id: "websites",
+    category: "Websites",
+    title: "Websites",
     description:
-      "Two live nursery businesses in Kadiyam — plant discovery by category, service pages, authentic galleries and WhatsApp enquiries, with SEO and Search Console sitemap management.",
-    tags: ["React", "Vite", "SEO", "Search Console", "Firebase Hosting"],
-    outcome: "Two nurseries selling through search, not just word of mouth",
-    liveHref: "https://nvknursery.in/",
-    liveLabel: "Live site",
-    shots: [
-      { src: "/work/nvk/01-home.jpg", alt: "NVK Nursery homepage with the nursery hero and enquiry actions", label: "nvknursery.in", href: "https://nvknursery.in/" },
-      { src: "/work/nvk/02-collections.jpg", alt: "NVK Nursery collections page with plant search and family filters", label: "nvknursery.in/collections", href: "https://nvknursery.in/" },
-      { src: "/work/nvk/03-services.jpg", alt: "NVK Nursery services page covering plant selection and landscaping", label: "nvknursery.in/services", href: "https://nvknursery.in/" },
-      { src: "/work/nvk/04-gallery.jpg", alt: "NVK Nursery gallery of real nursery imagery", label: "nvknursery.in/gallery", href: "https://nvknursery.in/" },
-      { src: "/work/nvk/05-about.jpg", alt: "NVK Nursery about page telling the family-run nursery story", label: "nvknursery.in/about", href: "https://nvknursery.in/" },
-      { src: "/work/rohini/01-home.jpg", alt: "Rohini Nursery homepage with hero imagery and plant category stats", label: "rohininursery.in", href: "https://rohininursery.in/" },
-      { src: "/work/rohini/02-plants.jpg", alt: "Rohini Nursery plants page with search and category filters", label: "rohininursery.in/plants", href: "https://rohininursery.in/" },
-      { src: "/work/rohini/03-gallery.jpg", alt: "Rohini Nursery gallery showing the nursery and plant stock", label: "rohininursery.in/gallery", href: "https://rohininursery.in/" },
-      { src: "/work/rohini/04-services.jpg", alt: "Rohini Nursery services page covering supply and maintenance", label: "rohininursery.in/services", href: "https://rohininursery.in/" },
+      "Marketing and catalogue sites built to turn search traffic into enquiries — structured content, real SEO work and WhatsApp-ready contact flows, not a theme with the colours swapped.",
+    tags: ["React", "Vite", "SEO", "Firebase Hosting"],
+    outcome: "Built to convert visitors into enquiries",
+    images: [
+      { src: "/work/nvk/01-home.jpg", alt: "Website homepage with a hero banner and clear enquiry actions", label: "Website — Home" },
+      { src: "/work/nvk/02-collections.jpg", alt: "Website catalogue page with search and category filters", label: "Website — Catalogue" },
+      { src: "/work/rohini/01-home.jpg", alt: "Website homepage with hero imagery and category stats", label: "Website — Home" },
+      { src: "/work/rohini/02-plants.jpg", alt: "Website product page with search and category filters", label: "Website — Products" },
     ],
   },
   {
-    id: "eis",
-    category: "Scientific Web App",
-    title: "EIS Data Analyzer",
-    client: "Electrochemical impedance labs",
+    id: "web-apps",
+    category: "Web Apps",
+    title: "Web Apps",
     description:
-      "A full-stack suite for Electrochemical Impedance Spectroscopy — configure a sweep or upload a file, process it through a Python backend, explore interactive Nyquist plots, then export the results.",
-    tags: ["React", "TypeScript", "Plotly.js", "Python", "FastAPI"],
-    outcome: "A lab workflow turned into one browser application",
-    liveHref: "https://patrace.netlify.app/",
-    liveLabel: "Live app",
-    shots: [
-      { src: "/work/eis/01-analyzer.jpg", alt: "EIS Analyzer interface with sweep parameters and a Nyquist plot", label: "EIS Analyzer — Lab Edition", href: "https://patrace.netlify.app/", linkLabel: "the live app" },
+      "Browser-based tools and dashboards built as working software — configurable inputs, live data views and export, not a static page pretending to be an app.",
+    tags: ["React", "Python", "Dashboards", "Data Visualization"],
+    outcome: "Built as working software, not a brochure",
+    images: [
+      { src: "/work/eis/01-analyzer.jpg", alt: "Web app interface with configurable parameters and an interactive chart", label: "Web App — Analysis" },
+      { src: "/work/mobile_erp/erp.jpeg", alt: "Web app dashboard showing sales, inventory and reporting panels", label: "Web App — Dashboard" },
     ],
   },
   {
-    id: "pharmacy",
-    category: "Members' Portal / Mobile App",
-    title: "Pharmacy Association Portal & PharmaConnect",
-    client: "Pharmacy & druggists association",
+    id: "mobile-apps",
+    category: "Mobile Apps",
+    title: "Mobile Apps",
     description:
-      "A public association site plus role-based private portals for eight kinds of member across a local healthcare network, an admin console over all of them, and PharmaConnect — the companion mobile app.",
-    tags: ["Role-based access", "Members' portal", "Admin console", "Directory", "Mobile app"],
-    outcome: "One network, eight member types, a single directory",
-    shots: [],
+      "Native mobile applications for people working away from a desk — role-based access and structured data, designed for a phone rather than a shrunken website.",
+    tags: ["Mobile App", "Role-Based Access", "Document Storage"],
+    outcome: "Designed for the phone, not a shrunken website",
+    images: [],
     privatePanel: {
-      note: "Private member portals — screenshots on request",
-      roles: [
-        "Retailers (pharmacies)",
-        "Wholesalers",
-        "Pharmacists",
-        "Hospitals",
-        "Doctors",
-        "Labs",
-        "Blood banks",
-        "Admin console",
-      ],
+      note: "Private builds — walkthroughs on request",
+      roles: ["Member Profiles", "Document Management", "Role-Based Access", "Admin Review"],
     },
   },
 ];

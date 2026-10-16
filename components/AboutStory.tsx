@@ -27,18 +27,20 @@ export default function AboutStory() {
                   business actually needs, not by what a template allows.
                   We&apos;re a small, senior team that designs, builds and
                   supports websites, apps and platforms for companies ready to
-                  invest in something built to last.
+                  invest in something built to last. We work with businesses
+                  across India to deliver custom software, web and mobile
+                  applications, ERP systems and AI-powered digital solutions.
                 </p>
               </Reveal>
 
               <Reveal delay={0.15} className="mt-10">
-                <dl className="flex flex-wrap gap-x-10 gap-y-6 border-t border-lineDark pt-8">
+                <dl className="grid grid-cols-3 gap-3 border-t border-lineDark pt-8 sm:gap-6 md:gap-8">
                   {heroStats.map((stat) => (
-                    <div key={stat.label}>
-                      <dd className="font-sora text-3xl font-800 tracking-tight text-inkText md:text-4xl">
+                    <div key={stat.label} className="min-w-0">
+                      <dd className="truncate font-sora text-lg font-800 tracking-tight text-inkText sm:text-xl md:text-3xl">
                         {stat.value}
                       </dd>
-                      <dt className="mt-1 max-w-[9rem] text-sm text-inkTextDim">
+                      <dt className="mt-1 truncate text-xs text-inkTextDim sm:text-sm">
                         {stat.label}
                       </dt>
                     </div>

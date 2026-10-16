@@ -207,7 +207,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       heading: "An app is a product, not a port of your website",
       body: [
         "A responsive site wrapped in an app shell is the cheapest thing to build and the first thing users delete. The screens are too dense, the flows assume a keyboard, and nothing works when the signal drops.",
-        "We start from the moments the app is actually opened — usually short, one-handed and interrupted — and design the smallest interface that gets that job done. PharmaConnect, the association app we built, exists for exactly those moments.",
+        "We start from the moments the app is actually opened — usually short, one-handed and interrupted — and design the smallest interface that gets that job done. The member management app we built for a medical association exists for exactly those moments.",
       ],
     },
     problems: [
@@ -278,7 +278,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       {
         title: "Companion app",
         description:
-          "A mobile front for a system you already run — the pattern behind PharmaConnect.",
+          "A mobile front for a system you already run — the same pattern behind the member management app in our portfolio.",
         icon: "phone",
       },
       {
@@ -354,7 +354,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       {
         question: "Can the app share a backend with our website?",
         answer:
-          "That is usually the point. PharmaConnect and the association portal share the same roles and directory, so a change in one is reflected in the other.",
+          "That is usually the point. When the app and a companion web portal share the same backend, roles and directory, a change in one is reflected in the other automatically.",
       },
       {
         question: "What happens after launch?",
@@ -543,7 +543,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     intro:
       "Access control, hardening and sensible handling of the data you hold — the practical security work that keeps a members' portal or a customer database out of trouble.",
     stats: [
-      { value: "8", label: "Member roles secured" },
+      { value: "Role-based", label: "Access controls" },
       { value: "Server-side", label: "Access checks" },
       { value: "HTTPS", label: "By default" },
     ],
@@ -551,7 +551,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
       heading: "Most breaches are not sophisticated",
       body: [
         "The systems we are asked to look at rarely fail to a clever attack. They fail because a shared password was reused, an admin route was protected only by hiding the link, or a dependency sat unpatched for two years.",
-        "We fix that class of problem first. On the pharmacy portal that meant eight member types with genuinely separate access, enforced on the server rather than in the interface — so a retailer cannot reach a wholesaler's records by editing a URL.",
+        "We fix that class of problem first. On a members' and administration platform we built, that meant separating roles so each one only reaches what it should, enforced on the server rather than in the interface — so one member type cannot reach another's records by editing a URL.",
       ],
     },
     problems: [
@@ -1912,174 +1912,174 @@ export const serviceDetails: Record<string, ServiceDetail> = {
     ],
   },
 
-  "performance-optimization": {
-    tagline: "Making a live site quick again",
-    headingLead: "Fast enough",
-    headingAccent: "to keep the visit.",
+  "erp-development": {
+    tagline: "ERP systems built around how retail actually runs",
+    headingLead: "Custom ERP",
+    headingAccent: "Development.",
     intro:
-      "Diagnosing and fixing slow pages on sites that are already live — load time, interaction delay and layout shift — measured before and after so the improvement is a number, not a feeling.",
+      "One system, not five spreadsheets. We build centralised ERP platforms that bring inventory, billing, sales and day-to-day reporting into one place — sized to how the business actually operates, with subscription-based licensing when that is the right model for how it is sold.",
     stats: [
-      { value: "<2s", label: "Load time target" },
-      { value: "Measured", label: "Before and after" },
-      { value: "Any stack", label: "Not just ours" },
+      { value: "Live", label: "In retail use" },
+      { value: "Subscription", label: "Licensing model" },
+      { value: "One system", label: "Inventory to billing" },
     ],
     positioning: {
-      heading: "Speed is a feature people notice by leaving",
+      heading: "Software shaped by the counter, not a generic template",
       body: [
-        "Nobody complains that a site is slow. They just go back to the search results, and the business never learns why the enquiry did not arrive.",
-        "This work starts with measurement on real devices and connections, not a score from a laptop on office wifi. Then we fix the things the numbers actually blame — usually images, fonts and far too much JavaScript — and measure again.",
+        "Most small retailers run the business across a billing app, a notebook for stock and a spreadsheet for suppliers — three sources of truth that never agree, and nobody notices until the stock count is wrong.",
+        "We build one system instead: inventory, sales, billing and reporting sharing the same data, with access and licensing controlled centrally. The Mobile Retail ERP platform in our portfolio follows exactly this pattern for mobile phone shops.",
       ],
     },
     problems: [
       {
-        title: "Slow to show anything",
+        title: "Stock nobody trusts",
         description:
-          "The largest element on the page takes seconds to appear, so the visitor stares at a blank screen.",
+          "A notebook, a spreadsheet and the till all disagree, so the stock count is a guess by the time anyone checks it.",
+        icon: "bulb",
+      },
+      {
+        title: "Billing disconnected from stock",
+        description:
+          "Sales recorded in one place and inventory tracked in another, so nothing updates automatically when something sells.",
         icon: "gear",
       },
       {
-        title: "Taps that do nothing",
+        title: "No visibility across the business",
         description:
-          "The page looks ready but the main thread is busy, so the first tap is ignored.",
-        icon: "phone",
+          "Owners find out how the week went by asking staff, because there is no single report that already knows.",
+        icon: "code",
       },
       {
-        title: "Unoptimised images and fonts",
+        title: "Access that is all or nothing",
         description:
-          "Full-resolution photos and blocking web fonts shipped to phones on mobile data.",
-        icon: "design",
-      },
-      {
-        title: "Content that jumps",
-        description:
-          "Layout shifting as things load, so people tap the wrong thing and give up.",
-        icon: "bulb",
+          "Every login sees everything, so there is no sane way to hand the system to staff without handing them the whole business.",
+        icon: "shield",
       },
     ],
     included: [
       {
-        title: "Real measurement",
+        title: "Process mapping",
         description:
-          "Field and lab data on the devices and connections your visitors actually use.",
-        icon: "bulb",
-      },
-      {
-        title: "Core Web Vitals audit",
-        description:
-          "Load, interaction and layout stability profiled per template rather than per page.",
-        icon: "gear",
-      },
-      {
-        title: "Image and asset work",
-        description:
-          "Correct formats, sizes and lazy loading, which is usually the single biggest win.",
-        icon: "design",
-      },
-      {
-        title: "JavaScript reduction",
-        description:
-          "Finding what is shipped and never used, and removing or deferring it.",
-        icon: "code",
-      },
-      {
-        title: "Font and render path",
-        description:
-          "Font loading and critical CSS sorted so text appears immediately rather than after a flash.",
+          "We map how stock, sales and billing actually move through the business before designing a single screen.",
         icon: "team",
       },
       {
-        title: "Before and after report",
+        title: "Inventory and stock tracking",
         description:
-          "The same measurements repeated, so the improvement is evidence rather than a claim.",
+          "A single, live record of what is in stock, updated automatically as sales and purchases happen.",
+        icon: "cloud",
+      },
+      {
+        title: "Sales and billing",
+        description:
+          "Invoicing and billing wired directly into inventory, so a sale updates stock without a second step.",
+        icon: "handshake",
+      },
+      {
+        title: "Reporting and dashboards",
+        description:
+          "Sales, stock and performance visible at a glance, instead of assembled by hand at month end.",
+        icon: "bulb",
+      },
+      {
+        title: "Subscription and licence management",
+        description:
+          "Access governed by subscription plan and licence validity, so the platform can be sold rather than just used.",
+        icon: "shield",
+      },
+      {
+        title: "Deployment and handover",
+        description:
+          "The system shipped, staff onboarded, and documentation handed over so it is not dependent on us.",
         icon: "support",
       },
     ],
     stages: [
       {
-        title: "Diagnostic",
+        title: "Single-location retail ERP",
         description:
-          "A measured audit with findings ranked by what would gain the most time for the least work.",
+          "Inventory, billing and reporting for one shop, replacing the spreadsheet-and-notebook mix most retailers start with.",
         icon: "bulb",
       },
       {
-        title: "Fix sprint",
+        title: "Multi-branch rollout",
         description:
-          "A focused piece of work through the ranked list, re-measured at the end.",
+          "The same system extended across locations, with reporting that rolls up rather than staying siloed per branch.",
         icon: "gear",
       },
       {
-        title: "Performance budget",
+        title: "Licensed platform",
         description:
-          "Thresholds agreed and watched over time, so the site does not quietly get slow again.",
-        icon: "shield",
+          "An ERP built to be sold to other businesses in the same trade, with subscription licensing built in from the start.",
+        icon: "design",
       },
     ],
     features: [
       {
-        title: "LCP",
+        title: "Real-time inventory",
         description:
-          "Getting the main content on screen quickly, which is what visitors judge you on.",
-        icon: "gear",
-      },
-      {
-        title: "INP",
-        description:
-          "Interactions that respond immediately, especially on mid-range phones.",
-        icon: "phone",
-      },
-      {
-        title: "CLS",
-        description:
-          "Space reserved so nothing jumps while the page settles.",
-        icon: "design",
-      },
-      {
-        title: "Asset discipline",
-        description:
-          "Images, fonts and scripts sized for the job rather than shipped as they came.",
-        icon: "code",
-      },
-      {
-        title: "Caching and delivery",
-        description:
-          "CDN and cache headers doing the work they should already have been doing.",
+          "Stock levels update the moment a sale or purchase is recorded, not at the next manual count.",
         icon: "cloud",
       },
       {
-        title: "Regression watch",
+        title: "Integrated billing",
         description:
-          "Monitoring after the fix, because performance decays with every new addition.",
-        icon: "support",
+          "Invoices generated against live stock and pricing, with tax handled as part of the flow.",
+        icon: "handshake",
+      },
+      {
+        title: "Role-based access",
+        description:
+          "Owners, staff and administrators each see what their role needs, enforced on the server.",
+        icon: "shield",
+      },
+      {
+        title: "Subscription licensing",
+        description:
+          "Plans and licence validity control access, so the platform supports being resold or tiered.",
+        icon: "gear",
+      },
+      {
+        title: "Reporting that updates itself",
+        description:
+          "Sales trends, stock position and billing summaries drawn from the same live data.",
+        icon: "bulb",
+      },
+      {
+        title: "Built to extend",
+        description:
+          "New modules and workflows added to the same system as the business grows, rather than bolted on separately.",
+        icon: "code",
       },
     ],
     industries: [
       "Retail & nurseries",
+      "Mobile & electronics retail",
       "Healthcare networks",
-      "Scientific & research",
+      "Membership associations",
       "Professional services",
-      "Education",
       "Local services",
     ],
     faq: [
       {
-        question: "Can you work on a site you did not build?",
+        question: "Can this replace our spreadsheets and billing app?",
         answer:
-          "Yes, and most of this work is exactly that. WordPress, Shopify, a custom build — the diagnosis is the same, only the fixes differ.",
+          "That is usually the point. Inventory, billing and reporting move into one system, so the same number is correct everywhere it appears.",
       },
       {
-        question: "How much faster will it get?",
+        question: "Can it be licensed to other businesses, not just used internally?",
         answer:
-          "We will not guess before measuring. The audit tells us what is possible and what it would take, and you decide whether the gain is worth the work.",
+          "Yes. We build subscription and licence management in from the start when the platform is meant to be sold, not just operated.",
       },
       {
-        question: "Does this help SEO?",
+        question: "Does it fit our specific trade?",
         answer:
-          "Page experience is a ranking input, so yes — but the stronger reason is that people stop leaving before the page renders.",
+          "We model the ERP around how your business actually moves stock and takes payment, rather than adapting a generic template to fit.",
       },
       {
-        question: "Will it stay fast?",
+        question: "What happens after launch?",
         answer:
-          "Only if someone watches it. New images, scripts and tags all cost time, which is why we offer a performance budget and monitoring after the fix.",
+          "Staff onboarding and documentation are part of delivery, and ongoing fixes or new modules sit under Maintenance & Support.",
       },
     ],
   },

@@ -3,16 +3,15 @@ import Logo from "./Logo";
 import NewsletterForm from "./NewsletterForm";
 import BackToTop from "./BackToTop";
 import { company } from "@/data/company";
+import { flagshipServices } from "@/data/services";
 
 const columns = [
   {
     title: "Services",
-    links: [
-      { label: "Website Development", href: "/services" },
-      { label: "Mobile App Development", href: "/services" },
-      { label: "Cloud Solutions", href: "/services" },
-      { label: "AI Chat Bots", href: "/services" },
-    ],
+    links: flagshipServices.map((service) => ({
+      label: service.title,
+      href: `/services/${service.slug}`,
+    })),
   },
   {
     title: "Studio",
@@ -39,7 +38,10 @@ const columns = [
         label: company.phones[2],
         href: "tel:" + company.phones[2].replace(/\s+/g, ""),
       },
-      { label: company.location, href: "#" },
+      {
+        label: company.location,
+        href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(company.location)}`,
+      },
     ],
   },
 ];
@@ -85,14 +87,11 @@ function RowIcon({ href }: { href: string }) {
       </svg>
     );
   }
-  if (href === "#") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-3.5 w-3.5 shrink-0 text-accent">
-        <path d="M12 1.5C7.3 1.5 3.5 5.3 3.5 10c0 6 8.5 12 8.5 12s8.5-6 8.5-12c0-4.7-3.8-8.5-8.5-8.5zm0 11.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
-      </svg>
-    );
-  }
-  return null;
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-3.5 w-3.5 shrink-0 text-accent">
+      <path d="M12 1.5C7.3 1.5 3.5 5.3 3.5 10c0 6 8.5 12 8.5 12s8.5-6 8.5-12c0-4.7-3.8-8.5-8.5-8.5zm0 11.5c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" />
+    </svg>
+  );
 }
 
 export default function Footer() {
@@ -198,6 +197,8 @@ export default function Footer() {
                     <Link
                       href={link.href}
                       data-cursor-hover
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="flex items-center gap-2 text-sm text-textDim transition-all duration-200 hover:translate-x-0.5 hover:text-accent"
                     >
                       <RowIcon href={link.href} />

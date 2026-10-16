@@ -13,6 +13,8 @@ export type Service = {
   tier: "flagship" | "more";
   image: string;
   alt: string;
+  /** "contain" shows the whole hero image instead of cropping it to fill the frame. */
+  heroImageFit?: "cover" | "contain";
 };
 
 export const services: Service[] = [
@@ -72,7 +74,7 @@ export const services: Service[] = [
     description:
       "Intelligent and conversational chatbots to automate support, engage users and boost your business.",
     icon: "bot",
-    tier: "flagship",
+    tier: "more",
     image: "/services/ai-chatbots.jpg",
     alt: "A conversational AI prompt box on screen",
   },
@@ -150,15 +152,16 @@ export const services: Service[] = [
   },
   {
     number: "12",
-    title: "Performance Optimization",
-    short: "Core Web Vitals work on sites that are already live.",
-    slug: "performance-optimization",
+    title: "ERP Development",
+    short: "Centralised business management systems for retail and service operations.",
+    slug: "erp-development",
     description:
-      "Diagnosing and fixing slow pages — load time, interaction delay and layout shift — on sites that are already live and losing visitors to the wait.",
+      "Custom ERP platforms that bring inventory, billing, sales and day-to-day operations into one place, built around how your business actually runs.",
     icon: "gear",
-    tier: "more",
-    image: "/services/performance-optimization.jpg",
-    alt: "A terminal and build output on a developer machine",
+    tier: "flagship",
+    image: "/work/mobile_erp/erp.jpeg",
+    alt: "An ERP dashboard showing sales, inventory and reporting panels",
+    heroImageFit: "contain",
   },
 ];
 

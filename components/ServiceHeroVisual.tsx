@@ -27,6 +27,7 @@ const SCREENS: Record<
  */
 export default function ServiceHeroVisual({ service }: { service: Service }) {
   const screen = SCREENS[service.slug];
+  const imageFitClass = service.heroImageFit === "contain" ? "object-contain" : "object-cover";
 
   return (
     <div className="relative mx-auto w-full max-w-xl pb-8 lg:max-w-none lg:pb-0">
@@ -53,7 +54,7 @@ export default function ServiceHeroVisual({ service }: { service: Service }) {
             <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
             <div className="ml-2 flex-1 truncate rounded-full bg-white/[0.07] px-3 py-1 text-[0.625rem] font-medium tracking-wide text-white/50 sm:text-[0.6875rem]">
-              moriva.tech/services/{service.slug}
+              moriva.tech
             </div>
           </div>
 
@@ -72,7 +73,7 @@ export default function ServiceHeroVisual({ service }: { service: Service }) {
                   fill
                   priority
                   sizes="(max-width: 1024px) 90vw, 48vw"
-                  className="object-cover"
+                  className={imageFitClass}
                 />
                 <div
                   aria-hidden
@@ -101,7 +102,7 @@ export default function ServiceHeroVisual({ service }: { service: Service }) {
                     aria-hidden
                     fill
                     sizes="140px"
-                    className="object-cover"
+                    className={imageFitClass}
                   />
                   <div
                     aria-hidden

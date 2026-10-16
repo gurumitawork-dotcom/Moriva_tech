@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Reveal from "./Reveal";
 import GradientMesh from "./GradientMesh";
 import { faq } from "@/data/faq";
@@ -13,12 +14,14 @@ export default function Faq() {
       <GradientMesh variant="light" fadeBottom />
       <div className="relative mx-auto max-w-[900px] px-6 md:px-10">
         <Reveal>
-          <span className="eyebrow">FAQ</span>
+          <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold text-accent md:text-sm">
+            FAQ
+          </span>
         </Reveal>
         <Reveal delay={0.05} className="mt-4 max-w-2xl">
-          <h2 className="font-sora text-5xl font-800 tracking-tight text-inkText md:text-7xl">
+          <h1 className="font-sora text-5xl font-800 tracking-tight text-inkText md:text-7xl">
             A few things people ask first.
-          </h2>
+          </h1>
         </Reveal>
 
         <div className="mt-16 border-t border-lineDark">
@@ -63,9 +66,23 @@ export default function Faq() {
                     }}
                   >
                     <div className="overflow-hidden">
-                      <p className="max-w-xl pb-7 text-sm leading-relaxed text-inkTextDim md:text-base">
-                        {item.answer}
-                      </p>
+                      <div className="max-w-xl pb-7">
+                        <p className="text-sm leading-relaxed text-inkTextDim md:text-base">
+                          {item.answer}
+                        </p>
+                        {item.relatedLink && (
+                          <Link
+                            href={item.relatedLink.href}
+                            data-cursor-hover
+                            className="group/link mt-3 inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-accent/[0.06] px-3.5 py-1.5 text-xs font-semibold text-accent transition-colors hover:border-accent/50 hover:bg-accent/10"
+                          >
+                            {item.relatedLink.label}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-3 w-3 transition-transform duration-300 group-hover/link:translate-x-0.5">
+                              <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>

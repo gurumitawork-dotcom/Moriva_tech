@@ -12,6 +12,8 @@ import PortfolioProcess from "@/components/PortfolioProcess";
 import CtaBand from "@/components/CtaBand";
 import { services } from "@/data/services";
 import { serviceDetails, type DetailItem } from "@/data/serviceDetails";
+import { company } from "@/data/company";
+import { SITE_URL, SHARE_IMAGE } from "@/data/seo";
 
 type Params = { params: { slug: string } };
 
@@ -19,13 +21,74 @@ export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
+/* Batch rollout: only these slugs get canonical/OG/Twitter metadata so far.
+   Descriptions are adapted from each service's existing serviceDetails intro,
+   not invented. Other slugs keep their original title+description only,
+   added here one batch at a time. */
+const METADATA_DESCRIPTIONS: Record<string, string> = {
+  "website-development":
+    "Custom website development focused on responsive design, fast loading, user experience and measurable business outcomes.",
+  "mobile-app-development":
+    "Custom iOS and Android app development with intuitive user experiences, reliable performance and features tailored to your business.",
+  "cloud-solutions":
+    "Cloud hosting, deployment and environment management designed for reliable releases, scalable infrastructure and streamlined operations.",
+  "cybersecurity-services":
+    "Cybersecurity services for access control, system hardening and secure data handling to strengthen infrastructure security and reduce risk.",
+  "ai-chat-bots":
+    "Custom AI chatbot development to automate routine queries, support customers around the clock and enable human handover when needed.",
+  "ui-ux-design":
+    "UI/UX design services focused on intuitive interfaces, clear user journeys and consistent design systems that improve usability.",
+  "it-consulting":
+    "IT consulting and digital transformation services to identify modernization priorities, evaluate costs and plan practical technology improvements.",
+  "maintenance-support":
+    "Website and application maintenance services covering monitoring, bug fixes, security updates and ongoing improvements after launch.",
+  "seo-services":
+    "SEO services covering technical audits, on-page optimization and indexing improvements to help search engines discover your website.",
+  "rag-application-development":
+    "Moriva Technologies develops retrieval-augmented generation (RAG) applications that connect AI models with relevant business documents and knowledge sources to deliver context-aware answers.",
+  "landing-page-design":
+    "Landing page design services focused on message match, conversion-focused layouts and fast loading to help turn campaign traffic into enquiries.",
+  "erp-development":
+    "Custom ERP development for integrated, scalable business management solutions that connect workflows, streamline operations and support business growth.",
+};
+
 export function generateMetadata({ params }: Params): Metadata {
   const service = services.find((s) => s.slug === params.slug);
   if (!service) return {};
+
+  const title = service.title + " — Moriva Technologies";
+  const description = METADATA_DESCRIPTIONS[service.slug];
+
+  if (!description) {
+    return { title, description: service.description };
+  }
+
+  const canonical = `${SITE_URL}/services/${service.slug}/`;
   return {
-    title: service.title + " — Moriva Technologies",
-    description: service.description,
+    title,
+    description,
+    alternates: { canonical },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: company.name,
+      type: "website",
+      images: [SHARE_IMAGE],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [SHARE_IMAGE.url],
+    },
   };
+}
+
+/* Escapes "<" so the serialized JSON can never prematurely close this
+   script tag or be parsed as markup. */
+function toJsonLdScript(data: unknown) {
+  return JSON.stringify(data).replace(/</g, "\\u003c");
 }
 
 export default function ServiceDetailPage({ params }: Params) {
@@ -34,50 +97,59 @@ export default function ServiceDetailPage({ params }: Params) {
 
   const detail = serviceDetails[service.slug];
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${SITE_URL}/services/` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: service.title,
+        item: `${SITE_URL}/services/${service.slug}/`,
+      },
+    ],
+  };
+
   return (
     <div className="pt-[88px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: toJsonLdScript(breadcrumbJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-paper pb-16 pt-14 md:pb-20 md:pt-16">
         <GradientMesh variant="light" />
         <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-          <Reveal>
-            <nav aria-label="Breadcrumb" className="mb-6 text-sm md:mb-8">
-              <ol className="flex flex-wrap items-center gap-1.5 text-inkTextDim">
-                <li>
-                  <Link href="/" className="transition-colors hover:text-accent">
-                    Home
-                  </Link>
-                </li>
-                <li aria-hidden className="text-inkTextDim/50">
-                  /
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="transition-colors hover:text-accent"
-                  >
-                    Services
-                  </Link>
-                </li>
-                <li aria-hidden className="text-inkTextDim/50">
-                  /
-                </li>
-                <li className="font-medium text-inkText" aria-current="page">
-                  {service.title}
-                </li>
-              </ol>
-            </nav>
-          </Reveal>
-
           <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-14">
             <div>
               <Reveal>
-                <p className="inline-flex items-center gap-2.5 rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold text-accent md:text-sm">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/15">
-                    <Icon name={service.icon} className="h-3.5 w-3.5" />
-                  </span>
-                  {detail ? detail.tagline : service.title}
-                </p>
+                <nav aria-label="Breadcrumb">
+                  <ol className="flex flex-wrap items-center gap-1.5 text-sm">
+                    <li>
+                      <Link href="/" className="text-inkTextDim transition-colors hover:text-accent">
+                        Home
+                      </Link>
+                    </li>
+                    <li aria-hidden className="text-inkTextDim/50">
+                      /
+                    </li>
+                    <li>
+                      <Link href="/services/" className="text-inkTextDim transition-colors hover:text-accent">
+                        Services
+                      </Link>
+                    </li>
+                    <li aria-hidden className="text-inkTextDim/50">
+                      /
+                    </li>
+                    <li aria-current="page">
+                      <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold text-accent md:text-sm">
+                        {service.title}
+                      </span>
+                    </li>
+                  </ol>
+                </nav>
               </Reveal>
 
               <Reveal delay={0.05}>
@@ -257,7 +329,7 @@ export default function ServiceDetailPage({ params }: Params) {
         </>
       )}
 
-      <RelatedServices />
+      <RelatedServices currentSlug={service.slug} />
       <CtaBand />
     </div>
   );

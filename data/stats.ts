@@ -4,9 +4,9 @@ export type Stat = {
 };
 
 export const heroStats: Stat[] = [
-  { value: "40+", label: "Products shipped" },
-  { value: "6", label: "Industries served" },
-  { value: "2 wks", label: "Avg. discovery turnaround" },
+  { value: "Custom", label: "Solutions" },
+  { value: "Modern", label: "Tech Stack" },
+  { value: "Quality", label: "Engineering" },
 ];
 
 export const bandStats: Stat[] = [

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Reveal from "./Reveal";
 import GradientMesh from "./GradientMesh";
 import ProjectCard from "./ProjectCard";
-import { portfolio } from "@/data/portfolio";
+import { portfolioShowcase } from "@/data/portfolio";
 
 export default function PortfolioSection() {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -56,15 +56,15 @@ export default function PortfolioSection() {
           </Reveal>
           <Reveal delay={0.1} className="mt-5">
             <p className="max-w-xl text-base leading-relaxed text-inkTextDim">
-              Websites, platforms and applications we have designed, built and
-              shipped — with real screenshots from the live builds.
+              Websites, web apps and mobile applications we have designed,
+              built and shipped — browse by the kind of work you need.
             </p>
           </Reveal>
         </div>
 
         {/* Grid — desktop */}
         <div className="mt-10 hidden gap-6 lg:grid lg:grid-cols-3 lg:gap-7">
-          {portfolio.map((project, i) => (
+          {portfolioShowcase.map((project, i) => (
             <Reveal key={project.id} delay={0.05 * i} className="h-full">
               <ProjectCard project={project} />
             </Reveal>
@@ -118,7 +118,7 @@ export default function PortfolioSection() {
             aria-label="Featured projects"
             className="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2"
           >
-            {portfolio.map((project) => (
+            {portfolioShowcase.map((project) => (
               <div
                 key={project.id}
                 className="w-[min(22rem,86vw)] shrink-0 snap-start"

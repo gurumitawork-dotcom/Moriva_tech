@@ -4,27 +4,69 @@ import GradientMesh from "./GradientMesh";
 import Icon from "./Icon";
 import { services } from "@/data/services";
 
+const trust = [
+  { title: `${services.length}`, detail: "Services" },
+  { title: "Full-stack", detail: "Strategy to deployment" },
+  { title: "One team", detail: "No subcontractors" },
+];
+
 export default function Services() {
   return (
     <section id="services" className="relative overflow-hidden bg-paper pb-14 pt-24 md:pb-16 md:pt-32">
       <GradientMesh variant="light" fadeBottom />
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-        <Reveal>
-          <span className="eyebrow">Services</span>
-        </Reveal>
-        <Reveal delay={0.05} className="mt-4 max-w-2xl">
-          <h2 className="font-sora text-5xl font-800 tracking-tight text-inkText md:text-7xl">
-            Full-stack digital engineering.
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1} className="mt-6 max-w-xl">
-          <p className="text-lg leading-relaxed text-inkTextDim">
-            From a single marketing site to a multi-tenant platform — pick a
-            service or bring us the whole problem.
-          </p>
-        </Reveal>
+        <div className="relative">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 overflow-visible"
+          >
+            <div className="absolute -right-10 -top-16 h-64 w-64 rounded-full bg-accent/15 blur-3xl md:-right-16 md:-top-20 md:h-[26rem] md:w-[26rem]" />
+            <div className="absolute right-[18%] top-[22%] h-56 w-56 rounded-full bg-accent2/15 blur-3xl md:h-80 md:w-80" />
+            <div className="absolute -left-16 bottom-[-10%] h-48 w-48 rounded-full bg-accent2/10 blur-3xl md:h-64 md:w-64" />
+          </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal>
+            <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold text-accent md:text-sm">
+              Services
+            </span>
+          </Reveal>
+          <Reveal delay={0.05} className="mt-4 max-w-2xl">
+            <h1 className="font-sora text-5xl font-800 tracking-tight text-inkText md:text-7xl">
+              <span className="block">Full-stack digital</span>
+              <span className="mt-1.5 block bg-gradient-to-r from-accent to-accent2 bg-clip-text text-transparent">
+                engineering.
+              </span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.1} className="mt-6 max-w-xl">
+            <p className="text-lg leading-relaxed text-inkTextDim">
+              From a single marketing site to a multi-tenant platform — pick a
+              service or bring us the whole problem.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <dl className="mt-8 grid w-full max-w-xl grid-cols-1 gap-4 border-t border-lineDark pt-6 xs:grid-cols-3 xs:gap-2.5 sm:gap-0">
+              {trust.map((item, i) => (
+                <div
+                  key={item.title}
+                  className={`flex min-w-0 flex-col xs:pr-1.5 sm:pr-5 ${
+                    i > 0 ? "sm:border-l sm:border-lineDark sm:pl-5" : ""
+                  }`}
+                >
+                  <dt className="font-sora text-sm font-700 tracking-tight text-inkText md:text-base">
+                    {item.title}
+                  </dt>
+                  <dd className="mt-1 text-[0.625rem] font-semibold uppercase leading-snug tracking-[0.1em] text-inkTextDim md:text-[0.6875rem]">
+                    {item.detail}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+        </div>
+
+        <div className="mt-24 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, i) => {
             const isBlue = i % 2 === 0;
             return (
@@ -41,9 +83,9 @@ export default function Services() {
                   >
                     <Icon name={service.icon} className="h-7 w-7" />
                   </div>
-                  <h3 className="mt-6 font-sora text-lg font-700 text-inkText">
+                  <h2 className="mt-6 font-sora text-lg font-700 text-inkText">
                     {service.title}
-                  </h3>
+                  </h2>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-inkTextDim">
                     {service.description}
                   </p>

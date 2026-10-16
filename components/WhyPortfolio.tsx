@@ -24,7 +24,7 @@ export default function WhyPortfolio() {
           <Reveal delay={0.1} className="mt-5">
             <p className="max-w-xl text-base leading-relaxed text-inkTextDim">
               The work above has a method behind it. This is what stays the
-              same from a nursery catalogue to a healthcare network portal.
+              same from a nursery catalogue to a business management platform.
             </p>
           </Reveal>
         </div>

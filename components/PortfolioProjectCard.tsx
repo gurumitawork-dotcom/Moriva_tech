@@ -14,7 +14,9 @@ export default function PortfolioProjectCard({ project }: { project: Project }) 
             alt={cover.alt}
             fill
             sizes="(max-width: 1024px) 88vw, 430px"
-            className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+            className={`transition-transform duration-700 ease-out group-hover:scale-105 ${
+              project.coverFit === "contain" ? "object-contain" : "object-cover object-top"
+            }`}
           />
         ) : (
           <div
@@ -115,7 +117,7 @@ export default function PortfolioProjectCard({ project }: { project: Project }) 
             data-cursor-hover
             className="group/ask inline-flex min-h-10 items-center gap-1.5 text-[0.8125rem] font-semibold text-accent"
           >
-            Ask about this build
+            {project.ctaLabel ?? "Ask about this build"}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="h-3.5 w-3.5 transition-transform duration-300 group-hover/ask:translate-x-1">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>

@@ -2,8 +2,8 @@ import type { Shot } from "./portfolio";
 
 export type ProjectFilter =
   | "Websites"
-  | "Web Apps"
   | "Portals"
+  | "Web Apps"
   | "Mobile Apps";
 
 export type Project = {
@@ -25,12 +25,16 @@ export type Project = {
   shots: Shot[];
   /** Cover treatment for work that cannot be shown publicly. */
   privateCover?: { label: string; points: string[] };
+  /** Overrides the default "Ask about this build" enquiry link text. */
+  ctaLabel?: string;
+  /** "contain" shows the whole cover image instead of cropping it to fill the frame. */
+  coverFit?: "cover" | "contain";
 };
 
 export const projectFilters: ProjectFilter[] = [
   "Websites",
-  "Web Apps",
   "Portals",
+  "Web Apps",
   "Mobile Apps",
 ];
 
@@ -41,7 +45,7 @@ export const allProjects: Project[] = [
     client: "Kadiyam, Andhra Pradesh",
     category: "Website · SEO",
     filters: ["Websites"],
-    tech: ["React", "Vite", "Firebase Hosting", "Search Console"],
+    tech: ["React", "Vite", "SEO", "Search Console"],
     goal: "Turn plant discovery into enquiries",
     description:
       "A digital presence for a family-run nursery: collections organised by plant family, service pages, an authentic gallery and WhatsApp enquiry flows — deployed on Firebase with an SEO and sitemap workflow behind it.",
@@ -82,49 +86,64 @@ export const allProjects: Project[] = [
     client: "Electrochemical impedance labs",
     category: "Scientific Web App",
     filters: ["Web Apps"],
-    tech: ["React", "TypeScript", "Plotly.js", "Python", "FastAPI"],
+    tech: ["Sweep Setup", "Nyquist Visualization", "Stats & Export"],
     goal: "Replace a fragmented lab workflow with one app",
     description:
       "Configure a frequency sweep or upload an existing measurement file, process it through a Python backend, explore the response in interactive Nyquist plots, review statistics and export the results.",
     services: ["Website Development", "UI/UX Design", "IT Consulting"],
-    liveHref: "https://patrace.netlify.app/",
-    liveLabel: "the live app",
     shots: [
       { src: "/work/eis/01-analyzer.jpg", alt: "EIS Analyzer interface with sweep parameters and a Nyquist plot", label: "EIS Analyzer — Lab Edition", href: "https://patrace.netlify.app/", linkLabel: "the live app" },
     ],
   },
-  {
-    id: "pharmacy-portal",
-    name: "Pharmacy Association Portal",
-    client: "Pharmacy & druggists association",
-    category: "Members' Portal",
-    filters: ["Portals", "Websites"],
-    tech: ["Role-based access", "Admin console", "Member directory"],
-    goal: "One directory for a whole healthcare network",
-    description:
-      "A public association website plus private, role-based portals for every kind of member — retailers, wholesalers, pharmacists, hospitals, doctors, labs and blood banks — with an admin console governing all of them.",
-    services: ["Website Development", "UI/UX Design", "Cybersecurity Services"],
-    shots: [],
-    privateCover: {
-      label: "Private member portals",
-      points: ["Retailers", "Wholesalers", "Pharmacists", "Hospitals", "Doctors", "Labs", "Blood banks", "Admin"],
-    },
-  },
+  // {
+  //   id: "pharmacy-portal",
+  //   name: "Pharmacy Association Portal",
+  //   client: "Pharmacy & druggists association",
+  //   category: "Members' Portal",
+  //   filters: ["Portals", "Websites"],
+  //   tech: ["Role-based access", "Admin console", "Member directory"],
+  //   goal: "One directory for a whole healthcare network",
+  //   description:
+  //     "A public association website plus private, role-based portals for every kind of member — retailers, wholesalers, pharmacists, hospitals, doctors, labs and blood banks — with an admin console governing all of them.",
+  //   services: ["Website Development", "UI/UX Design", "Cybersecurity Services"],
+  //   shots: [],
+  //   privateCover: {
+  //     label: "Private member portals",
+  //     points: ["Retailers", "Wholesalers", "Pharmacists", "Hospitals", "Doctors", "Labs", "Blood banks", "Admin"],
+  //   },
+  // },
   {
     id: "pharmaconnect",
-    name: "PharmaConnect",
-    client: "Pharmacy & druggists association",
+    name: "Member Information Management",
+    client: "Medical association",
     category: "Mobile Application",
-    filters: ["Mobile Apps"],
-    tech: ["Mobile app", "Role-based access", "Directory"],
-    goal: "The association in a member's pocket",
+    filters: ["Mobile Apps","Portals"],
+    tech: ["Mobile App", "Access Control", "Document Storage"],
+    goal: "Organised information. Controlled access",
     description:
-      "The companion mobile application for association members — the same role-aware directory and member services as the portal, built for the people who work the counter rather than a desk.",
+      "An application that allows members to maintain their profiles and documents, while authorised administrators access and review relevant information through role-based permissions.",
     services: ["Mobile App Development", "UI/UX Design"],
     shots: [],
     privateCover: {
-      label: "Member mobile app",
-      points: ["Member directory", "Role-aware access", "Association updates", "Enquiries"],
+      label: "Member & Administration Portal",
+      points: ["Member Profiles", "Document Management", "Role-Based Access","Admin Review"],
     },
+  },
+  {
+    id: "mobile-retail-erp",
+    name: "Mobile Retail ERP ",
+    client: "Mobile Shop Business Management",
+    category: "Retail Management System",
+    filters: ["Web Apps"],
+    tech: ["Inventory Management", "Sales & Billing", "Stock Tracking"],
+    goal: "Simplifying everyday operations for mobile retailers.",
+    description:
+      "A mobile retail ERP application designed to help mobile phone shops manage inventory, sales, billing, and day-to-day business operations in one place. Access to the application is governed by licence validity.",
+    services: ["ERP Development", "UI/UX Design", "Retail Process Automation"],
+    ctaLabel: "Enquire About This Project",
+    coverFit: "contain",
+    shots: [
+      { src: "/work/mobile_erp/erp.jpeg", alt: "Mobile Retail ERP dashboard showing sales, GST and inventory reports", label: "Mobile Retail ERP — Dashboard", href: "#" },
+    ],
   },
 ];

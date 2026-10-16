@@ -7,6 +7,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollArrows from "@/components/ScrollArrows";
+import { SITE_URL, SHARE_IMAGE } from "@/data/seo";
 
 const sora = Sora({
   subsets: ["latin"],
@@ -30,9 +31,17 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Moriva Technologies — Digital Engineering Studio",
   description:
     "We design and engineer websites, digital products and platforms for companies that have outgrown templates — strategy, interface and code, handled by one team.",
+  openGraph: {
+    images: [SHARE_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [SHARE_IMAGE.url],
+  },
 };
 
 export default function RootLayout({

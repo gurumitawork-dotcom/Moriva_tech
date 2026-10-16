@@ -3,7 +3,6 @@ import PortfolioHeroArt from "./PortfolioHeroArt";
 import ProposalButton from "./ProposalButton";
 import Reveal from "./Reveal";
 import GradientMesh from "./GradientMesh";
-import { allProjects } from "@/data/projects";
 
 const trust = [
   { title: "Production", detail: "Live client systems" },
@@ -12,44 +11,30 @@ const trust = [
 ];
 
 export default function PortfolioHero() {
-  const liveCount = allProjects.filter((p) => p.liveHref).length;
-
   return (
     <section className="relative overflow-hidden bg-paper pb-16 pt-14 md:pb-20 md:pt-16">
       <GradientMesh variant="light" />
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-        <Reveal>
-          <nav aria-label="Breadcrumb" className="mb-6 text-sm md:mb-8">
-            <ol className="flex flex-wrap items-center gap-1.5 text-inkTextDim">
-              <li>
-                <Link href="/" className="transition-colors hover:text-accent">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden className="text-inkTextDim/50">
-                /
-              </li>
-              <li className="font-medium text-inkText" aria-current="page">
-                Portfolio
-              </li>
-            </ol>
-          </nav>
-        </Reveal>
-
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14">
           <div>
             <Reveal>
-              <p className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold tracking-wide text-accent md:text-sm">
-                <span className="relative flex h-2 w-2 shrink-0">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
-                <span className="font-bold text-inkText">Moriva</span>
-                <span aria-hidden className="h-3 w-px shrink-0 bg-accent/30" />
-                <span className="truncate">
-                  {liveCount} live builds · portfolio
-                </span>
-              </p>
+              <nav aria-label="Breadcrumb">
+                <ol className="flex flex-wrap items-center gap-1.5 text-sm">
+                  <li>
+                    <Link href="/" className="text-inkTextDim transition-colors hover:text-accent">
+                      Home
+                    </Link>
+                  </li>
+                  <li aria-hidden className="text-inkTextDim/50">
+                    /
+                  </li>
+                  <li aria-current="page">
+                    <span className="inline-flex items-center rounded-full border border-accent/25 bg-accent/[0.07] px-3.5 py-1.5 text-xs font-semibold text-accent md:text-sm">
+                      Portfolio
+                    </span>
+                  </li>
+                </ol>
+              </nav>
             </Reveal>
 
             <Reveal delay={0.05}>
@@ -72,9 +57,9 @@ export default function PortfolioHero() {
             <Reveal delay={0.15}>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-inkTextDim">
                 Nursery catalogues built to sell through search, an analysis
-                suite for impedance labs, and a members&apos; portal serving a
-                whole healthcare network — designed, built and shipped by the
-                same small team.
+                suite for impedance labs, and business management platforms
+                for retail and membership organisations — designed, built and
+                shipped by the same small team.
               </p>
             </Reveal>
 
